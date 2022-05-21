@@ -5,6 +5,11 @@ export interface DescriptionModel {
   text: string;
 }
 
+export interface PersonalDescriptionModel {
+  description: string;
+  icon: ReactElement<any, any> | string;
+}
+
 export interface SkillModel {
   name: string;
   icon: ReactElement<any, any>;
@@ -30,6 +35,7 @@ export interface DataModel {
   firstName: string;
   lastName: string;
   title: string;
+  personalDescription: Array<PersonalDescriptionModel>;
   social: { github: string; dribbble: string; twitter: string; email: string };
   about: {
     descriptions: Array<DescriptionModel>;

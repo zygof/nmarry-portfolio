@@ -2,6 +2,8 @@ import React from "react";
 import { CgMonday } from "react-icons/cg";
 import classNames from "classnames";
 
+import { TogglerDarkMode } from "./TogglerDarkMode";
+
 interface Props {
   firstName: string;
   lastName: string;
@@ -39,6 +41,9 @@ const Navbar: React.FunctionComponent<Props> = ({
             <p className="text-center">{item}</p>
           </li>
         ))}
+        <li>
+          <TogglerDarkMode />
+        </li>
       </ul>
     </nav>
   );

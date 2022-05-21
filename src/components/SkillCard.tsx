@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SkillModel } from "../models";
+import { SkillModel } from "../interfaces";
 
 interface Props {
   skill: SkillModel;

@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCalendarWeek } from "react-icons/fa";
-import { CareerModel } from "../models";
+import { CareerModel } from "../interfaces";
 import moment from "moment";
 
 interface Props {

@@ -1,17 +1,35 @@
 import React from "react";
 import { FaPalette, FaReact, FaCode } from "react-icons/fa";
-import { DataModel } from "../models";
+import { DataModel } from "../interfaces";
 
 const BOOTSTRAP_FOR_SKILL_ICON: string = "text-4xl mx-auto inline-block";
 const data: DataModel = {
   firstName: "Nicolas",
   lastName: "MARRY",
   title: "Développeur full-stack / Mobile",
+  personalDescription: [
+    {
+      description: "Passionné de sport",
+      icon: "🏸",
+    },
+    {
+      description: "Situé à la Réunion",
+      icon: "🇷🇪",
+    },
+    {
+      description: "En recherche d'emploi",
+      icon: "🖥️",
+    },
+    {
+      description: "me@nmarry.fr",
+      icon: "📧",
+    },
+  ],
   social: {
     github: "https://github.com/zygof",
     dribbble: "https://github.com/zygof",
     twitter: "https://github.com/zygof",
-    email: "someone@example.com",
+    email: "me@nmarry.fr",
   },
   about: {
     descriptions: [

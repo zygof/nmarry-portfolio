@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import AOS from "aos";
 
+import { DarkModeContext } from "./contexts/DarkModeContext";
 import useNavigation from "./hooks/useNavigation";
 import Navbar from "./components/Navbar";
 import Tabbar from "./components/Tabbar";
@@ -17,6 +18,7 @@ import "aos/dist/aos.css";
 
 function App() {
   const { currentRoute, setCurrentRoute } = useNavigation();
+  const darkModeContext = useContext(DarkModeContext);
   const navigationData: Array<string> = [
     "À propos",
     "Formations",
@@ -29,7 +31,11 @@ function App() {
     });
   });
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div
+      className={`min-h-screen ${
+        darkModeContext?.darkMode ? "bg-gray-900" : "bg-white"
+      }`}
+    >
       <Navbar
         navigationData={navigationData}
         currentRoute={currentRoute}
@@ -40,9 +46,10 @@ function App() {
       <div className="py-10 px-3 sm:px-5">
         <div data-aos="fade-down" data-aos-duration="800">
           <Card
-            name={data.firstName + " " + data.lastName}
+            name={data.firstName}
             title={data.title}
             social={data.social}
+            personalDescription={data.personalDescription}
           />
         </div>
         <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">

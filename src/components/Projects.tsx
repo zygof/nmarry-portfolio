@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 
-import { ProjectModel } from "../models";
+import { ProjectModel } from "../interfaces";
 
 interface Props {
   projects: Array<ProjectModel>;

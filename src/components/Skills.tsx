@@ -1,7 +1,7 @@
 import React from "react";
 import SkillCard from "./SkillCard";
 
-import { SkillModel } from "../models";
+import { SkillModel } from "../interfaces";
 
 interface Props {
   skills: Array<SkillModel>;

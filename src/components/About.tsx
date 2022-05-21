@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DescriptionModel } from "../models";
+import { DescriptionModel } from "../interfaces";
 
 interface Props {
   descriptions: Array<DescriptionModel>;

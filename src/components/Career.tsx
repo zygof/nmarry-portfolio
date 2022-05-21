@@ -1,7 +1,7 @@
 import React from "react";
 import CareerElement from "./CareerElement";
 
-import { CareerModel } from "../models";
+import { CareerModel } from "../interfaces";
 
 interface Props {
   careers: Array<CareerModel>;

@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
+
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -7,7 +9,9 @@ import "./assets/main.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DarkModeProvider>
+      <App />
+    </DarkModeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
