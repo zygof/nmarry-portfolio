@@ -12,7 +12,7 @@ interface DarkModeContextInterface {
 const DarkModeContext = createContext<DarkModeContextInterface | null>(null);
 
 const DarkModeProvider: React.FunctionComponent<Props> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (

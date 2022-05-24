@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: rgba(106, 62, 107);
+  --secondary: rgba(191, 0, 254);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -24,8 +29,6 @@ main {
   font-size: 1.5rem;
   position: relative;
   z-index: 1;
-  width: 90vw;
-  margin: 1rem auto;
 }
 @media only screen and (min-width: 1025px) {
   main {
@@ -77,7 +80,7 @@ main .emoji {
   opacity: 0.9;
   transition: opacity 700ms;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, rgb(185, 85, 211), rgb(247, 10, 7));
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 @media only screen and (min-width: 940px) {
   .avatar {
@@ -94,4 +97,89 @@ main .emoji {
   filter: grayscale(1);
   border-radius: 50%;
   width: 100%;
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+
+.inset-dl-cv {
+  right: 0;
+  bottom: 0;
+}
+
+.card-project {
+  flex-basis: 25%;
+}
+
+.chevron {
+  position: absolute;
+  width: 22px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+  top: -20px;
+  cursor: pointer;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: var(--primary);
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
 }

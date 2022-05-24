@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 
-import { DarkModeContext } from "../contexts/DarkModeContext";
+import { DarkModeContext } from "../contexts";
 
-export const TogglerDarkMode = () => {
+interface Props {
+  onNavBarRight?: boolean;
+}
+export const TogglerDarkMode: React.FunctionComponent<Props> = ({
+  onNavBarRight,
+}) => {
   const darkModeContext = useContext(DarkModeContext);
 
   return (
     <div
-      className="font-extrabold cursor-pointer"
+      className={`font-extrabold cursor-pointer ${onNavBarRight ? "mr-5" : ""}`}
       onClick={darkModeContext?.toggleDarkMode}
     >
       {darkModeContext?.darkMode ? (

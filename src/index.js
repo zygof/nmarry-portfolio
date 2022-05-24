@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { DarkModeProvider } from "./contexts/DarkModeContext";
+import { RouteProvider, DarkModeProvider } from "./contexts";
 
 import "./index.css";
 import App from "./App";
@@ -9,9 +9,11 @@ import "./assets/main.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <DarkModeProvider>
-      <App />
-    </DarkModeProvider>
+    <RouteProvider>
+      <DarkModeProvider>
+        <App />
+      </DarkModeProvider>
+    </RouteProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

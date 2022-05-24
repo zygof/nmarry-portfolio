@@ -7,7 +7,7 @@ interface Props {
 }
 
 const SkillCard: React.FunctionComponent<Props> = ({ skill }) => (
-  <div className="m-4 w-40 flex-none mx-auto text-center p-5 rounded-xl border-2 border-gray-300">
+  <div className="m-10 max-w-sm p-5 card-project text-center rounded-xl border-2 border-gray-300">
     {skill.icon}
     <p className="text-xl font-semibold mt-4">{skill.name}</p>
   </div>

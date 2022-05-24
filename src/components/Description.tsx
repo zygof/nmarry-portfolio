@@ -1,29 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, RefObject } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaDribbble } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaRegEnvelope } from "react-icons/fa";
 
-import { DarkModeContext } from "../contexts/DarkModeContext";
+import { RouteContext, DarkModeContext } from "../contexts";
 import { PersonalDescriptionModel } from "../interfaces";
+import { Route } from "../constants";
 interface Props {
+  customRef: RefObject<HTMLDivElement>;
   name: string;
   title: string;
   personalDescription: Array<PersonalDescriptionModel>;
   social: { github: string; dribbble: string; twitter: string; email: string };
 }
-const Card: React.FunctionComponent<Props> = ({
+const Description: React.FunctionComponent<Props> = ({
+  customRef,
   name,
   title,
   personalDescription,
   social,
 }) => {
+  const routeContext = useContext(RouteContext);
   const darkModeContext = useContext(DarkModeContext);
   return (
-    <main className="flex">
+    <main
+      ref={customRef}
+      onWheel={(event: React.WheelEvent<HTMLElement>) => {
+        if (event.deltaY > 0) routeContext?.handleRoute(Route.A_PROPOS);
+      }}
+      onKeyDown={routeContext?.goToNextRoute}
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="400"
+      className="flex h-screen align-center"
+    >
       <div className="avatar shadow-lg">
         <img
-          src={require("../assets/images/profile.png")}
+          src="/profile.png"
           alt="self"
           className="w-100 rounded-medium grayscale-0"
         />
@@ -34,11 +48,9 @@ const Card: React.FunctionComponent<Props> = ({
             darkModeContext?.darkMode ? "text-white" : "text-black"
           }`}
         >
-          Hi, je m'appelle {name} 👋🏻
+          Hi, I'm {name} 👋🏽
         </p>
-        <p className="text-3xl font-semibold text-gray-600 my-1">
-          Je suis {title}
-        </p>
+        <p className="text-3xl font-semibold my-1 text-primary">{title}</p>
         <ul>
           {personalDescription.map((element, index) => (
             <li key={index}>
@@ -92,4 +104,4 @@ const Card: React.FunctionComponent<Props> = ({
   );
 };
 
-export default Card;
+export default Description;

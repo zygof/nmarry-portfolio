@@ -1,27 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CgMonday } from "react-icons/cg";
 import classNames from "classnames";
 
 import { TogglerDarkMode } from "./TogglerDarkMode";
-
+import { RouteContext, DarkModeContext } from "../contexts";
+import { Route } from "../constants";
 interface Props {
   firstName: string;
   lastName: string;
-  navigationData: Array<string>;
-  currentRoute: string;
-  setCurrentRoute: (item: string) => void;
 }
 
-const Navbar: React.FunctionComponent<Props> = ({
-  firstName,
-  lastName,
-  navigationData,
-  currentRoute,
-  setCurrentRoute,
-}) => {
+const Navbar: React.FunctionComponent<Props> = ({ firstName, lastName }) => {
+  const routeContext = useContext(RouteContext);
+  const darkModeContext = useContext(DarkModeContext);
+
   return (
-    <nav className="hidden md:flex flex-row items-center justify-between px-8 h-18 rounded-b-3xl p-10">
-      <span className="-mb-1 flex flex-row">
+    <nav className="hidden lg:inline-flex flex flex-row items-center justify-between p-10 overflow-hidden fixed w-screen z-50">
+      <span
+        className="-mb-1 flex flex-row cursor-pointer"
+        onClick={() => routeContext?.handleRoute(Route.DESCRIPTION)}
+      >
         <CgMonday className="text-5xl text-gray-800" />
         <div className="flex text-2xl font-bold ml-4 mt-2">
           <p className="text-gray-100 mr-2">{firstName}</p>{" "}
@@ -29,20 +27,21 @@ const Navbar: React.FunctionComponent<Props> = ({
         </div>
       </span>
       <ul className="flex flex-row">
-        {navigationData.map((item, index) => (
+        {routeContext?.routes.map((item, index) => (
           <li
-            className={classNames([
-              "w-22 mx-5 text-gray-700 text-xl hover:text-gray-600 cursor-pointer font-medium tracking-wide text-sm flex items-start justify-center",
-              currentRoute === item && "text-blue-100",
-            ])}
             key={index}
-            onClick={() => setCurrentRoute(item)}
+            className={classNames([
+              "w-22 mx-5 text-xl hover:text-gray-600 cursor-pointer font-medium tracking-wide text-sm flex items-start justify-center",
+              darkModeContext?.darkMode ? "text-white" : "text-primary",
+              index === 0 ? "hidden" : null,
+            ])}
+            onClick={() => routeContext?.handleRoute(item.route)}
           >
-            <p className="text-center">{item}</p>
+            <p className="text-center">{item.route}</p>
           </li>
         ))}
         <li>
-          <TogglerDarkMode />
+          <TogglerDarkMode onNavBarRight />
         </li>
       </ul>
     </nav>

@@ -1,5 +1,6 @@
-import { ReactElement } from "react";
+import { RefObject, ReactElement } from "react";
 
+import { Route } from "../constants";
 export interface DescriptionModel {
   label: string;
   text: string;
@@ -43,4 +44,9 @@ export interface DataModel {
   skills: Array<SkillModel>;
   projects: Array<ProjectModel>;
   careers: Array<CareerModel>;
+}
+
+export interface RouteModel {
+  ref: RefObject<HTMLDivElement>;
+  route: Route;
 }
