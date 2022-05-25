@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 
-import { Route } from "../constants";
 import { RouteModel } from "../interfaces";
 
 interface Props {
@@ -10,10 +9,10 @@ interface Props {
 interface RouteContextInterface {
   routes: Array<RouteModel>;
   handleRoutes: (routes: Array<RouteModel>) => void;
-  prevRoute: string | null;
-  currentRoute: string;
-  nextRoute: string | null;
-  handleRoute: (route: Route) => void;
+  prevRoute: RouteModel | null;
+  currentRoute: RouteModel | null;
+  nextRoute: RouteModel | null;
+  handleRoute: (page: number) => void;
   goToPrevRoute: () => void;
   goToNextRoute: () => void;
 }
@@ -22,39 +21,30 @@ const RouteContext = createContext<RouteContextInterface | null>(null);
 
 const RouteProvider: React.FunctionComponent<Props> = ({ children }) => {
   const [routes, setRoutes] = useState<Array<RouteModel>>([]);
-  const [prevRoute, setPrevRoute] = useState<Route | null>(null);
-  const [currentRoute, setCurrentRoute] = useState<Route>(Route.DESCRIPTION);
-  const [nextRoute, setNextRoute] = useState<Route | null>(Route.A_PROPOS);
+  const [prevRoute, setPrevRoute] = useState<RouteModel | null>(null);
+  const [currentRoute, setCurrentRoute] = useState<RouteModel | null>(
+    routes.length > 0 ? routes[0] : null
+  );
+  const [nextRoute, setNextRoute] = useState<RouteModel | null>(
+    routes.length > 2 ? routes[1] : null
+  );
 
   const handleRoutes = (items: Array<RouteModel>) => setRoutes(items);
-  const handleRoute = (route: Route) => {
+  const handleRoute = (id: number) => {
     routes.map((item, index) => {
-      if (item.route === route) {
-        window.scrollTo({
-          top: item.ref.current?.offsetTop,
-          left: 100,
-          behavior: "smooth",
-        });
-        if (index === 0) {
-          setPrevRoute(null);
-        } else {
-          setPrevRoute(routes[index - 1].route);
-        }
-        setCurrentRoute(route);
-        if (index === routes.length - 1) {
-          setNextRoute(null);
-        } else {
-          setNextRoute(routes[index + 1].route);
-        }
+      if (item.id === id) {
+        setPrevRoute(index === 0 ? null : routes[index - 1]);
+        setCurrentRoute(item);
+        setNextRoute(index === routes.length - 1 ? null : routes[index + 1]);
       }
       return item;
     });
   };
   const goToPrevRoute = () => {
-    if (prevRoute) handleRoute(prevRoute);
+    if (prevRoute) handleRoute(prevRoute.id);
   };
   const goToNextRoute = () => {
-    if (nextRoute) handleRoute(nextRoute);
+    if (nextRoute) handleRoute(nextRoute.id);
   };
 
   return (

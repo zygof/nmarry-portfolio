@@ -1,43 +1,75 @@
-import React, { RefObject, useContext } from "react";
+import React, { RefObject, useState } from "react";
+import classNames from "classnames";
+import {
+  FaCircle,
+  FaArrowAltCircleRight,
+  FaArrowAltCircleLeft,
+} from "react-icons/fa";
 
 import { DescriptionModel } from "../interfaces";
-import { Route } from "../constants";
-import { RouteContext } from "../contexts";
 
 interface Props {
   customRef: RefObject<HTMLDivElement>;
   descriptions: Array<DescriptionModel>;
+  firstName: string;
+  lastName: string;
 }
 
-const About: React.FunctionComponent<Props> = ({ customRef, descriptions }) => {
-  const routeContext = useContext(RouteContext);
+const About: React.FunctionComponent<Props> = ({
+  customRef,
+  descriptions,
+  firstName,
+  lastName,
+}) => {
+  const [current, setCurrent] = useState(0);
+  const length = descriptions.length;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  if (!Array.isArray(descriptions) || length <= 0) {
+    return null;
+  }
+
   return (
-    <div
-      ref={customRef}
-      onWheel={(event: React.WheelEvent<HTMLElement>) => {
-        if (event.deltaY < 0) routeContext?.handleRoute(Route.DESCRIPTION);
-        if (event.deltaY > 0) routeContext?.handleRoute(Route.FORMATIONS);
-      }}
-      onKeyUp={routeContext?.goToPrevRoute}
-      onKeyDown={routeContext?.goToNextRoute}
-      data-aos="fade-up"
-      data-aos-duration="800"
-      data-aos-delay="400"
-      className="flex flex-col h-screen align-center justify-center"
-    >
-      <p className="text-2xl md:text-4xl text-center font-extrabold">
-        À propos
-      </p>
-      {descriptions.map((description: DescriptionModel, index: number) => (
-        <div key={index}>
-          <p className="text-lg font-bold text-center mt-5">
-            {description.label}
-          </p>
-          <p className="text-base text-left md:text-center text-gray-600 leading-relaxed mt-4">
-            {description.text}
-          </p>
-        </div>
-      ))}
+    <div ref={customRef} className="component relative items-center">
+      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+      <section className="flex relative items-center justify-center">
+        {descriptions.map((description: DescriptionModel, index: number) => (
+          <div
+            key={index}
+            className={classNames(
+              "terminal",
+              index === current ? "slide active" : "slide disabled"
+            )}
+          >
+            <div className="flex topRow">
+              <FaCircle size={25} color="#FF6057" />
+              <FaCircle size={25} color="#FFBD2E" />
+              <FaCircle size={25} color="#27C93F" />
+              <i className="fa fa-circle red" />
+              <i className="amber" />
+              <i className="green" />
+            </div>
+            <div className="window">
+              <p>
+                <span className="text-primary">
+                  {firstName.toLowerCase()}
+                  {lastName.toLowerCase()}/{description.label}{" "}
+                  <span className="green"></span> ${" "}
+                </span>
+                {description.text}
+              </p>
+            </div>
+          </div>
+        ))}
+      </section>
     </div>
   );
 };

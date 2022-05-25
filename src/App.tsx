@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useRef, useMemo } from "react";
+import ReactPageScroller from "react-page-scroller";
 import AOS from "aos";
 
 import { Route } from "./constants";
@@ -18,6 +19,8 @@ import data from "./assets/data";
 
 import "./App.css";
 import "aos/dist/aos.css";
+import "./assets/slick/slick.css";
+import "./assets/slick/slick-theme.css";
 
 const App = () => {
   const routeContext = useContext(RouteContext);
@@ -30,11 +33,11 @@ const App = () => {
 
   const routes: Array<RouteModel> = useMemo(
     () => [
-      { ref: refDescription, route: Route.DESCRIPTION },
-      { ref: refAbout, route: Route.A_PROPOS },
-      { ref: refCareer, route: Route.FORMATIONS },
-      { ref: refSkills, route: Route.COMPETENCES },
-      { ref: refProjects, route: Route.MES_PROJETS },
+      { id: 0, ref: refDescription, route: Route.DESCRIPTION },
+      { id: 1, ref: refAbout, route: Route.A_PROPOS },
+      { id: 2, ref: refCareer, route: Route.FORMATIONS },
+      { id: 3, ref: refSkills, route: Route.COMPETENCES },
+      { id: 4, ref: refProjects, route: Route.MES_PROJETS },
     ],
     []
   );
@@ -45,35 +48,47 @@ const App = () => {
       once: true,
     });
   }, [routeContext, routes]);
-  return (
-    <div
-      className={`min-h-screen ${
-        darkModeContext?.darkMode ? "bg-gray-900" : "bg-white"
-      }`}
-    >
-      <Navbar firstName={data.firstName} lastName={data.lastName} />
-      <Description
-        customRef={refDescription}
-        name={data.firstName}
-        title={data.title}
-        social={data.social}
-        personalDescription={data.personalDescription}
-      />
-      <About customRef={refAbout} descriptions={data.about.descriptions} />
-      <Career customRef={refCareer} careers={data.careers} />
-      <Skills customRef={refSkills} skills={data.skills} />
-      <Projects customRef={refProjects} projects={data.projects} />
-      <Footer github={data.social.github} />
-      {routeContext?.nextRoute ? (
-        <NextButton
-          onClick={routeContext?.goToNextRoute}
-          nextPage={routeContext?.nextRoute}
-        />
-      ) : null}
 
-      <CVDownload file="/CV-Nicolas MARRY.pdf" />
-      <Tabbar />
-    </div>
+  return (
+    <React.Fragment>
+      <div className={darkModeContext?.darkMode ? "bg-gray-900" : "bg-white"}>
+        <Navbar firstName={data.firstName} lastName={data.lastName} />
+        <ReactPageScroller
+          customPageNumber={routeContext?.currentRoute?.id || 0}
+          onBeforePageScroll={routeContext?.handleRoute}
+          pageOnChange={routeContext?.handleRoute}
+        >
+          <Description
+            customRef={refDescription}
+            name={data.firstName}
+            title={data.title}
+            social={data.social}
+            personalDescription={data.personalDescription}
+          />
+          <About
+            firstName={data.firstName}
+            lastName={data.lastName}
+            customRef={refAbout}
+            descriptions={data.about.descriptions}
+          />
+          <Career customRef={refCareer} careers={data.careers} />
+          <Skills customRef={refSkills} skills={data.skills} />
+          <Projects customRef={refProjects} projects={data.projects} />
+        </ReactPageScroller>
+        <CVDownload file="/CV-Nicolas MARRY.pdf" />
+        {routeContext?.nextRoute ? (
+          <NextButton
+            onClick={routeContext?.goToNextRoute}
+            nextPage={routeContext?.nextRoute.route}
+          />
+        ) : null}
+
+        {!routeContext?.nextRoute ? (
+          <Footer github={data.social.github} />
+        ) : null}
+        <Tabbar />
+      </div>
+    </React.Fragment>
   );
 };
 export default App;

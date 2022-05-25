@@ -33,7 +33,7 @@ const Tabbar: React.FunctionComponent<Props> = () => {
             darkModeContext?.darkMode ? "text-white" : "text-primary",
             index === 0 ? "hidden" : null,
           ])}
-          onClick={() => routeContext?.handleRoute(item.route)}
+          onClick={() => routeContext?.handleRoute(item.id)}
         >
           <span className="-mb-1">{getTabIcon(item)}</span>
         </span>

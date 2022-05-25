@@ -34,15 +34,15 @@ const data: DataModel = {
   about: {
     descriptions: [
       {
-        label: "Développeur ? Pourquoi ?",
+        label: "pourquoi-dev",
         text: "Se réveiller chaque matin pour développer mon sens artistique est ce qui me met le plus en joie. Motivé par la satistaction du client et par le travail bien fait, je mettrai toute en oeuvre pour atteindre mes objectifs.",
       },
       {
-        label: "Pourquoi moi ?",
+        label: "pourquoi-moi",
         text: "Faites-moi confiance et je participerai à la croissance de l'entreprise et je saurai intégrer votre équipe d'experts. Je suis une personne engagée, passionnée par les nouvelles technologies.",
       },
       {
-        label: "Le futur ?",
+        label: "futur",
         text: "Mon plus grand bonheur serait de mettre tout mon expertise au profit de mon île la Réunion 😌😌",
       },
     ],

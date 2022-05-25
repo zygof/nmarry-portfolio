@@ -4,7 +4,6 @@ import classNames from "classnames";
 
 import { TogglerDarkMode } from "./TogglerDarkMode";
 import { RouteContext, DarkModeContext } from "../contexts";
-import { Route } from "../constants";
 interface Props {
   firstName: string;
   lastName: string;
@@ -18,7 +17,7 @@ const Navbar: React.FunctionComponent<Props> = ({ firstName, lastName }) => {
     <nav className="hidden lg:inline-flex flex flex-row items-center justify-between p-10 overflow-hidden fixed w-screen z-50">
       <span
         className="-mb-1 flex flex-row cursor-pointer"
-        onClick={() => routeContext?.handleRoute(Route.DESCRIPTION)}
+        onClick={() => routeContext?.handleRoute(0)}
       >
         <CgMonday className="text-5xl text-gray-800" />
         <div className="flex text-2xl font-bold ml-4 mt-2">
@@ -35,7 +34,7 @@ const Navbar: React.FunctionComponent<Props> = ({ firstName, lastName }) => {
               darkModeContext?.darkMode ? "text-white" : "text-primary",
               index === 0 ? "hidden" : null,
             ])}
-            onClick={() => routeContext?.handleRoute(item.route)}
+            onClick={() => routeContext?.handleRoute(item.id)}
           >
             <p className="text-center">{item.route}</p>
           </li>

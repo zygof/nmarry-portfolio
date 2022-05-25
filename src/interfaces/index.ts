@@ -47,6 +47,7 @@ export interface DataModel {
 }
 
 export interface RouteModel {
+  id: number;
   ref: RefObject<HTMLDivElement>;
   route: Route;
 }

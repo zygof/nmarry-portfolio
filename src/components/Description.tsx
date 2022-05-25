@@ -4,9 +4,8 @@ import { FaDribbble } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaRegEnvelope } from "react-icons/fa";
 
-import { RouteContext, DarkModeContext } from "../contexts";
+import { DarkModeContext } from "../contexts";
 import { PersonalDescriptionModel } from "../interfaces";
-import { Route } from "../constants";
 interface Props {
   customRef: RefObject<HTMLDivElement>;
   name: string;
@@ -21,19 +20,14 @@ const Description: React.FunctionComponent<Props> = ({
   personalDescription,
   social,
 }) => {
-  const routeContext = useContext(RouteContext);
   const darkModeContext = useContext(DarkModeContext);
   return (
     <main
       ref={customRef}
-      onWheel={(event: React.WheelEvent<HTMLElement>) => {
-        if (event.deltaY > 0) routeContext?.handleRoute(Route.A_PROPOS);
-      }}
-      onKeyDown={routeContext?.goToNextRoute}
       data-aos="fade-up"
       data-aos-duration="800"
       data-aos-delay="400"
-      className="flex h-screen align-center"
+      className="component"
     >
       <div className="avatar shadow-lg">
         <img
@@ -42,7 +36,7 @@ const Description: React.FunctionComponent<Props> = ({
           className="w-100 rounded-medium grayscale-0"
         />
       </div>
-      <div className="align-center">
+      <div className="items-center">
         <p
           className={`text-4xl sm:text-4xl font-bold ${
             darkModeContext?.darkMode ? "text-white" : "text-black"
@@ -54,6 +48,7 @@ const Description: React.FunctionComponent<Props> = ({
         <ul>
           {personalDescription.map((element, index) => (
             <li key={index}>
+              <span className="mr-2">{element.icon}</span>
               <span
                 aria-label="emoji"
                 role="img"
@@ -62,8 +57,7 @@ const Description: React.FunctionComponent<Props> = ({
                 }`}
               >
                 {element.description}
-              </span>{" "}
-              {element.icon}
+              </span>
             </li>
           ))}
         </ul>

@@ -7,7 +7,7 @@ interface Props {
 
 const NextButton: React.FunctionComponent<Props> = ({ nextPage, onClick }) => (
   <div
-    className="hidden lg:inline-flex justify-center shadow-xl fixed bottom-0 p-10 z-50 w-screen"
+    className="hidden lg:inline-flex justify-center fixed bottom-0 py-10 z-50 left-40 w-48"
     onClick={onClick}
   >
     <div className="chevron"></div>

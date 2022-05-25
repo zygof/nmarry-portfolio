@@ -7,13 +7,28 @@
   --secondary: rgba(191, 0, 254);
 }
 
+html,
 body {
   margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.component {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.component.first-component {
+  background-color: gray;
+  position: relative;
 }
 
 code {
@@ -182,4 +197,90 @@ main .emoji {
   to {
     opacity: 1;
   }
+}
+
+.terminal {
+  width: 80%;
+  border-radius: 0.5rem;
+
+  @media only screen and (min-width: 940px) {
+    width: 50%;
+  }
+}
+
+.topRow {
+  background-color: #bdc6ce;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 1rem;
+}
+@media only screen and (min-width: 940px) {
+  .topRow {
+    font-size: 1.3rem;
+  }
+}
+.topRow svg {
+  padding-left: 0.5rem;
+}
+
+.window {
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: black;
+  color: white;
+}
+@media only screen and (min-width: 940px) {
+  .window {
+    padding: 2rem 3rem;
+  }
+}
+.window p,
+.window li {
+  font-family: "Courier New", Courier, monospace;
+  margin: 1.3rem 0;
+}
+@media only screen and (min-width: 940px) {
+  .window p,
+  .window li {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+  }
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: var(--primary);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: var(--primary);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+.slide.disabled {
+  visibility: hidden;
+  width: 0px;
 }
