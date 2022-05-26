@@ -24,20 +24,22 @@ const Tabbar: React.FunctionComponent<Props> = () => {
   }, []);
 
   return (
-    <nav className="flex md:hidden flex-row items-center justify-around px-8 h-14 bg-white visible md:invisible fixed bottom-0 w-full rounded-t-3xl text-2xl">
-      {routeContext?.routes.map((item, index) => (
-        <span
-          key={index}
-          className={classNames([
-            "hover:text-gray-600 cursor-pointer w-18 h-full flex items-center justify-center",
-            darkModeContext?.darkMode ? "text-white" : "text-primary",
-            index === 0 ? "hidden" : null,
-          ])}
-          onClick={() => routeContext?.handleRoute(item.id)}
-        >
-          <span className="-mb-1">{getTabIcon(item)}</span>
-        </span>
-      ))}
+    <nav className="lg:hidden justify-around px-8 h-12 bg-secondary visible lg:invisible fixed bottom-0 w-full">
+      <section className="flex flex-row items-center">
+        {routeContext?.routes.map((item, index) => (
+          <span
+            key={index}
+            className={classNames([
+              "hover:text-gray-600 cursor-pointer h-full w-full flex items-center justify-center",
+              darkModeContext?.darkMode ? "text-blue-50" : "text-primary",
+              index === 0 ? "hidden" : null,
+            ])}
+            onClick={() => routeContext?.handleRoute(item.id)}
+          >
+            <span className="-mb-1">{getTabIcon(item)}</span>
+          </span>
+        ))}
+      </section>
     </nav>
   );
 };

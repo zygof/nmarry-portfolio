@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 
-interface Props {
-  nextPage?: string;
-  onClick: () => void;
-}
+import { RouteContext } from "../contexts";
 
-const NextButton: React.FunctionComponent<Props> = ({ nextPage, onClick }) => (
-  <div
-    className="hidden lg:inline-flex justify-center fixed bottom-0 py-10 z-50 left-40 w-48"
-    onClick={onClick}
-  >
-    <div className="chevron"></div>
-    <div className="chevron"></div>
-    <div className="chevron"></div>
-    <span className="text-primary text-2xl font-bold -mb-5 cursor-pointer">{nextPage}</span>
-  </div>
-);
+interface Props {}
+
+const NextButton: React.FunctionComponent<Props> = () => {
+  const routeContext = useContext(RouteContext);
+  return (
+    <div
+      className="hidden lg:inline-flex justify-center fixed nextButton"
+      onClick={routeContext?.goToNextRoute}
+    >
+      <div className="flex justify-center py-10 z-40 cursor-pointer">
+        <div className="chevron"></div>
+        <div className="chevron"></div>
+        <div className="chevron"></div>
+        <span className="text-primary text-2xl font-bold -mb-5">
+          {routeContext?.nextRoute?.route}
+        </span>
+      </div>
+    </div>
+  );
+};
 
 export default NextButton;

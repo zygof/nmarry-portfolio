@@ -28,6 +28,7 @@ export interface CareerModel {
   diploma: string;
   option?: string;
   location: string;
+  link?: string;
   from: Date;
   to?: Date;
 }

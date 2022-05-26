@@ -4,7 +4,8 @@
 
 :root {
   --primary: rgba(106, 62, 107);
-  --secondary: rgba(191, 0, 254);
+  --secondary: rgba(101, 0, 254);
+  --domain: rgba(74, 85, 104);
 }
 
 html,
@@ -112,9 +113,10 @@ main .emoji {
   filter: grayscale(1);
   border-radius: 50%;
   width: 100%;
+  -webkit-filter: grayscale(1);
 }
 .bg-primary {
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
 }
 .bg-secondary {
   background-color: var(--secondary);
@@ -126,9 +128,16 @@ main .emoji {
   color: var(--secondary);
 }
 
-.inset-dl-cv {
+.downloadButton {
+  margin: 10;
+  background-color: var(--primary);
   right: 0;
   bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+.downloadButton:hover {
+  background-color: rgb(75 85 99 / 1);
 }
 
 .card-project {
@@ -257,6 +266,13 @@ main .emoji {
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  opacity: 30%;
+}
+.right-arrow:hover {
+  opacity: 100%;
+}
+.right-arrow:active {
+  opacity: 50%;
 }
 
 .left-arrow {
@@ -268,6 +284,13 @@ main .emoji {
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  opacity: 30%;
+}
+.left-arrow:hover {
+  opacity: 100%;
+}
+.left-arrow:active {
+  opacity: 50%;
 }
 
 .slide {
@@ -283,4 +306,21 @@ main .emoji {
 .slide.disabled {
   visibility: hidden;
   width: 0px;
+  height: 0px;
+}
+
+.career {
+  background-color: var(--primary);
+  cursor: pointer;
+  width: 100%;
+}
+
+.career:hover {
+  background-color: var(--domain);
+}
+
+.nextButton {
+  transform: translate(-50%, -50%);
+  bottom: -7%;
+  left: 50%;
 }

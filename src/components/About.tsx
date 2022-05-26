@@ -40,7 +40,7 @@ const About: React.FunctionComponent<Props> = ({
     <div ref={customRef} className="component relative items-center">
       <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
       <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-      <section className="flex relative items-center justify-center">
+      <section className="flex items-center justify-center">
         {descriptions.map((description: DescriptionModel, index: number) => (
           <div
             key={index}

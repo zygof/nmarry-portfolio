@@ -19,8 +19,6 @@ import data from "./assets/data";
 
 import "./App.css";
 import "aos/dist/aos.css";
-import "./assets/slick/slick.css";
-import "./assets/slick/slick-theme.css";
 
 const App = () => {
   const routeContext = useContext(RouteContext);
@@ -51,7 +49,7 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <div className={darkModeContext?.darkMode ? "bg-gray-900" : "bg-white"}>
+      <div className={darkModeContext?.darkMode ? "bg-gray-900" : "bg-blue-50"}>
         <Navbar firstName={data.firstName} lastName={data.lastName} />
         <ReactPageScroller
           customPageNumber={routeContext?.currentRoute?.id || 0}
@@ -76,12 +74,7 @@ const App = () => {
           <Projects customRef={refProjects} projects={data.projects} />
         </ReactPageScroller>
         <CVDownload file="/CV-Nicolas MARRY.pdf" />
-        {routeContext?.nextRoute ? (
-          <NextButton
-            onClick={routeContext?.goToNextRoute}
-            nextPage={routeContext?.nextRoute.route}
-          />
-        ) : null}
+        {routeContext?.nextRoute ? <NextButton /> : null}
 
         {!routeContext?.nextRoute ? (
           <Footer github={data.social.github} />
