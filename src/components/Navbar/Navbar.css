@@ -1,0 +1,46 @@
+.navbar {
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item-text {
+    color: var(--primary);
+  }
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-item-text {
+    color: white;
+  }
+
+  .nav-item-container {
+    background-color: var(--primary);
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .nav-item-container.darkmode {
+    background-color: var(--primary);
+  }
+
+  .nav-item {
+    background-color: "black";
+    border-color: black;
+    color: white;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .nav-item {
+    color: white;
+  }
+}

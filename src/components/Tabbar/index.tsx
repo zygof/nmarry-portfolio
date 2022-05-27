@@ -4,7 +4,7 @@ import { AiFillHome, AiFillCompass } from "react-icons/ai";
 import { BsFillBagFill } from "react-icons/bs";
 import { CgInbox } from "react-icons/cg";
 
-import { RouteContext, DarkModeContext } from "../contexts";
+import { RouteContext, DarkModeContext } from "../../contexts";
 interface Props {}
 
 const Tabbar: React.FunctionComponent<Props> = () => {

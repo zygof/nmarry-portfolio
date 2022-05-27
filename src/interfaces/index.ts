@@ -1,6 +1,6 @@
 import { RefObject, ReactElement } from "react";
 
-import { Route } from "../constants";
+import { Route } from "../data";
 export interface DescriptionModel {
   label: string;
   text: string;
@@ -38,7 +38,7 @@ export interface DataModel {
   lastName: string;
   title: string;
   personalDescription: Array<PersonalDescriptionModel>;
-  social: { github: string; dribbble: string; twitter: string; email: string };
+  social: { github: string; linkedin: string; email: string };
   about: {
     descriptions: Array<DescriptionModel>;
   };

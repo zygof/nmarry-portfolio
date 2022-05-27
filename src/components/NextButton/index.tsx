@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { RouteContext } from "../contexts";
+import { RouteContext } from "../../contexts";
 
 interface Props {}
 

@@ -1,22 +1,14 @@
 import React, { useContext } from "react";
-import ClassNames from "classnames";
 
-import { DarkModeContext } from "../contexts";
+import { DarkModeContext } from "../../contexts";
 
-interface Props {
-  onNavBarRight?: boolean;
-}
-export const TogglerDarkMode: React.FunctionComponent<Props> = ({
-  onNavBarRight,
-}) => {
+interface Props {}
+export const TogglerDarkMode: React.FunctionComponent<Props> = () => {
   const darkModeContext = useContext(DarkModeContext);
 
   return (
     <div
-      className={ClassNames([
-        "font-extrabold cursor-pointer",
-        onNavBarRight ? "mr-5" : "",
-      ])}
+      className="font-extrabold cursor-pointer"
       onClick={darkModeContext?.toggleDarkMode}
     >
       {darkModeContext?.darkMode ? (

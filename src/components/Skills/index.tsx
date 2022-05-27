@@ -1,7 +1,7 @@
 import React, { RefObject } from "react";
 import SkillCard from "./SkillCard";
 
-import { SkillModel } from "../interfaces";
+import { SkillModel } from "../../interfaces";
 
 interface Props {
   customRef: RefObject<HTMLDivElement>;
@@ -11,9 +11,6 @@ interface Props {
 const Skills: React.FunctionComponent<Props> = ({ customRef, skills }) => (
   <div
     ref={customRef}
-    data-aos="fade-up"
-    data-aos-duration="800"
-    data-aos-delay="400"
     className="component"
   >
     <div className="h-full flex flex-wrap align-center justify-center">

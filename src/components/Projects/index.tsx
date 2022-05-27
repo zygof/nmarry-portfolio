@@ -1,7 +1,7 @@
 import React, { RefObject } from "react";
 import ProjectCard from "./ProjectCard";
 
-import { ProjectModel } from "../interfaces";
+import { ProjectModel } from "../../interfaces";
 
 interface Props {
   customRef: RefObject<HTMLDivElement>;

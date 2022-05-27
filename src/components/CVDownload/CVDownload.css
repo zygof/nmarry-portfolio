@@ -1,0 +1,12 @@
+.downloadButton {
+  margin: 10;
+  background-color: var(--primary);
+  right: 0;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.downloadButton:hover {
+  background-color: var(--domain);
+}

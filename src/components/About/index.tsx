@@ -6,7 +6,7 @@ import {
   FaArrowAltCircleLeft,
 } from "react-icons/fa";
 
-import { DescriptionModel } from "../interfaces";
+import { DescriptionModel } from "../../interfaces";
 
 interface Props {
   customRef: RefObject<HTMLDivElement>;
@@ -24,12 +24,12 @@ const About: React.FunctionComponent<Props> = ({
   const [current, setCurrent] = useState(0);
   const length = descriptions.length;
 
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
-
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? current : current + 1);
   };
 
   if (!Array.isArray(descriptions) || length <= 0) {
@@ -38,14 +38,25 @@ const About: React.FunctionComponent<Props> = ({
 
   return (
     <div ref={customRef} className="component relative items-center">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-      <section className="flex items-center justify-center">
+      <FaArrowAltCircleLeft
+        size={42}
+        className={classNames(["left-arrow", current === 0 ? "hidden" : null])}
+        onClick={prevSlide}
+      />
+      <FaArrowAltCircleRight
+        size={42}
+        className={classNames([
+          "right-arrow",
+          current === length - 1 ? "hidden" : null,
+        ])}
+        onClick={nextSlide}
+      />
+      <section className="flex items-center justify-center sm:px-6 md:px-5 lg:px-10">
         {descriptions.map((description: DescriptionModel, index: number) => (
           <div
             key={index}
             className={classNames(
-              "terminal",
+              "terminal shadow-2xl",
               index === current ? "slide active" : "slide disabled"
             )}
           >

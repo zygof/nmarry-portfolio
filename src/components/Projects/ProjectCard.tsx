@@ -2,7 +2,7 @@ import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import GitHubButton from "react-github-btn";
 
-import { ProjectModel } from "../interfaces";
+import { ProjectModel } from "../../interfaces";
 
 interface Props {
   project: ProjectModel;

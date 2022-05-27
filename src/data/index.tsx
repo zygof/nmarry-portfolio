@@ -1,8 +1,17 @@
 import React from "react";
 import { FaPalette, FaReact, FaCode } from "react-icons/fa";
+
 import { DataModel } from "../interfaces";
 
-const BOOTSTRAP_FOR_SKILL_ICON: string = "text-4xl mx-auto inline-block";
+export enum Route {
+  INTRO = "Intro",
+  ABOUT = "À propos",
+  CAREERS = "Formations",
+  SKILLS = "Compétences",
+  PROJECTS = "Mes Projets",
+  CONTACT = "Contact",
+}
+
 const data: DataModel = {
   firstName: "Nicolas",
   lastName: "MARRY",
@@ -27,8 +36,7 @@ const data: DataModel = {
   ],
   social: {
     github: "https://github.com/zygof",
-    dribbble: "https://github.com/zygof",
-    twitter: "https://github.com/zygof",
+    linkedin: "https://github.com/zygof",
     email: "me@nmarry.fr",
   },
   about: {
@@ -47,43 +55,6 @@ const data: DataModel = {
       },
     ],
   },
-  skills: [
-    {
-      name: "Frontend",
-      icon: <FaCode className={BOOTSTRAP_FOR_SKILL_ICON} />,
-    },
-    {
-      name: "Design/UX",
-      icon: <FaPalette className={BOOTSTRAP_FOR_SKILL_ICON} />,
-    },
-    {
-      name: "ReactJS",
-      icon: <FaReact className={BOOTSTRAP_FOR_SKILL_ICON} />,
-    },
-    {
-      name: "Frontend",
-      icon: <FaCode className={BOOTSTRAP_FOR_SKILL_ICON} />,
-    },
-    {
-      name: "Design/UX",
-      icon: <FaPalette className={BOOTSTRAP_FOR_SKILL_ICON} />,
-    },
-  ],
-  projects: [
-    {
-      title: "React tailwind portfolio",
-      description:
-        "👨‍🎨 An open-source portfolio template built with React and Tailwind.",
-      tags: ["template", "portfolio", "reactjs", "tailwindcss"],
-      link: "https://github.com/braydentw/react-tailwind-portfolio",
-    },
-    {
-      title: "My personal website",
-      description: "⚡ My portfolio built with NextJS and TailwindCSS.",
-      tags: ["website", "portfolio", "nextjs", "tailwindcss"],
-      link: "https://github.com/braydentW/braydentw",
-    },
-  ],
   careers: [
     {
       from: new Date("2020-01-01"),
@@ -119,5 +90,43 @@ const data: DataModel = {
       link: "https://www.onisep.fr/Ressources/Univers-Lycee/Lycees/La-Reunion/La-Reunion/section-d-enseignement-professionnel-du-lycee-georges-brassens",
     },
   ],
+  skills: [
+    {
+      name: "Frontend",
+      icon: <FaCode className="text-4xl mx-auto inline-block" />,
+    },
+    {
+      name: "Design/UX",
+      icon: <FaPalette className="text-4xl mx-auto inline-block" />,
+    },
+    {
+      name: "ReactJS",
+      icon: <FaReact className="text-4xl mx-auto inline-block" />,
+    },
+    {
+      name: "Frontend",
+      icon: <FaCode className="text-4xl mx-auto inline-block" />,
+    },
+    {
+      name: "Design/UX",
+      icon: <FaPalette className="text-4xl mx-auto inline-block" />,
+    },
+  ],
+  projects: [
+    {
+      title: "React tailwind portfolio",
+      description:
+        "👨‍🎨 An open-source portfolio template built with React and Tailwind.",
+      tags: ["template", "portfolio", "reactjs", "tailwindcss"],
+      link: "https://github.com/braydentw/react-tailwind-portfolio",
+    },
+    {
+      title: "My personal website",
+      description: "⚡ My portfolio built with NextJS and TailwindCSS.",
+      tags: ["website", "portfolio", "nextjs", "tailwindcss"],
+      link: "https://github.com/braydentW/braydentw",
+    },
+  ],
 };
+
 export default data;

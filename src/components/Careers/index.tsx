@@ -1,7 +1,7 @@
 import React, { RefObject } from "react";
 import moment from "moment";
 
-import { CareerModel } from "../interfaces";
+import { CareerModel } from "../../interfaces";
 interface Props {
   customRef: RefObject<HTMLDivElement>;
   careers: Array<CareerModel>;
@@ -26,7 +26,7 @@ const CareerCardLeft: React.FunctionComponent<CareerCard> = ({ career }) => (
             moment(career.from).format("YYYY")
           : moment(career.from).format("YYYY")
       }`}</h3>
-      <p className="leading-tight text-justify font-bold ">
+      <p className="leading-tight text-justify font-medium">
         {career.diploma}
         <span className="font-extralight text-md ml-2">{career.location}</span>
       </p>
@@ -59,7 +59,7 @@ const CareerCardRight: React.FunctionComponent<CareerCard> = ({ career }) => (
       <h3 className="font-semibold text-lg mb-1">{`${moment(career.from).format(
         "YYYY"
       )}${career.to ? " - " + moment(career.to).format("YYYY") : ""}`}</h3>
-      <p className="leading-tight text-justify font-bold ">
+      <p className="leading-tight text-justify font-medium ">
         {career.diploma}
         <span className="font-extralight text-md ml-2">{career.location}</span>
       </p>
@@ -74,9 +74,9 @@ const Careers: React.FunctionComponent<Props> = ({ customRef, careers }) => (
     <div className="flex flex-col md:grid grid-cols-9 m-auto">
       {careers.map((career: CareerModel, index: number) =>
         index % 2 === 0 ? (
-          <CareerCardLeft career={career} />
+          <CareerCardLeft key={index} career={career} />
         ) : (
-          <CareerCardRight career={career} />
+          <CareerCardRight key={index} career={career} />
         )
       )}
     </div>
