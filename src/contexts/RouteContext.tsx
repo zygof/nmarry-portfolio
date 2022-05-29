@@ -37,22 +37,20 @@ const RouteProvider: React.FunctionComponent<Props> = ({ children }) => {
   };
 
   return (
-    <div>
-      <RouteContext.Provider
-        value={{
-          routes,
-          handleRoutes,
-          prevRoute,
-          currentRoute,
-          nextRoute,
-          handleRoute,
-          goToPrevRoute,
-          goToNextRoute,
-        }}
-      >
-        {children}
-      </RouteContext.Provider>
-    </div>
+    <RouteContext.Provider
+      value={{
+        routes,
+        handleRoutes,
+        prevRoute,
+        currentRoute,
+        nextRoute,
+        handleRoute,
+        goToPrevRoute,
+        goToNextRoute,
+      }}
+    >
+      {children}
+    </RouteContext.Provider>
   );
 };
 

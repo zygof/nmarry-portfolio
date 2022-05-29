@@ -16,11 +16,9 @@ const DarkModeProvider: React.FunctionComponent<Props> = ({ children }) => {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    <div>
-      <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-        {children}
-      </DarkModeContext.Provider>
-    </div>
+    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+      {children}
+    </DarkModeContext.Provider>
   );
 };
 

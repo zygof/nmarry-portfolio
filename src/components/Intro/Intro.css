@@ -9,6 +9,12 @@ main {
   z-index: 1;
 }
 
+@media only screen and (max-width: 1024px) {
+  main {
+    margin-top: 10px;
+  }
+}
+
 @media only screen and (min-width: 1025px) {
   main {
     flex-direction: row;

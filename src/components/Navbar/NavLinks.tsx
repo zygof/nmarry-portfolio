@@ -2,16 +2,18 @@ import React from "react";
 import classNames from "classnames";
 
 import { RouteContextInterface } from "../../interfaces";
-import { TogglerDarkMode } from "../TogglerDarkMode";
+import TogglerDarkMode from "../TogglerDarkMode";
 
 interface Props {
   routeContext: RouteContextInterface | null;
   isDarkMode?: boolean;
+  handleDarkMode?: () => void;
 }
 
 const MobileNavLinks: React.FunctionComponent<Props> = ({
   routeContext,
   isDarkMode,
+  handleDarkMode,
 }) => (
   <ul className={classNames(["flex-row justify-end items-center flex z-50"])}>
     {routeContext?.routes.map((item, index) => (
@@ -25,7 +27,7 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
       >
         <p
           className={classNames([
-            "text-center text-xl font-medium whitespace-no-wrap hover:text-gray-600",
+            "text-center text-xl font-medium whitespace-no-wrap hover:text-gray-600 transition-colors duration-300",
             isDarkMode ? "text-blue-50" : "text-primary",
           ])}
         >
@@ -41,8 +43,11 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
         />
       </li>
     ))}
-    <li className="w-full cursor-pointer flex justify-center py-px mx-5">
-      <TogglerDarkMode />
+    <li
+      className="w-full cursor-pointer flex justify-center py-px mx-5"
+      onClick={handleDarkMode}
+    >
+      <TogglerDarkMode isDarkMode={isDarkMode} />
     </li>
   </ul>
 );

@@ -1,4 +1,4 @@
-import { RefObject, ReactElement } from "react";
+import { ReactElement } from "react";
 
 import { Route } from "../data";
 export interface DescriptionModel {
@@ -9,6 +9,12 @@ export interface DescriptionModel {
 export interface PersonalDescriptionModel {
   description: string;
   icon: ReactElement<any, any> | string;
+}
+
+export interface SocialModel {
+  social: string;
+  link: string;
+  icon: ReactElement<any, any>;
 }
 
 export interface SkillModel {
@@ -37,8 +43,10 @@ export interface DataModel {
   firstName: string;
   lastName: string;
   title: string;
+  profile: string;
+  cv?: string;
   personalDescription: Array<PersonalDescriptionModel>;
-  social: { github: string; linkedin: string; email: string };
+  socials: Array<SocialModel>;
   about: {
     descriptions: Array<DescriptionModel>;
   };
@@ -48,12 +56,13 @@ export interface DataModel {
 }
 
 export interface LogoProps {
+  className?: string;
+  isDarkMode?: boolean;
   onClick?: () => void;
 }
 
 export interface RouteModel {
   id: number;
-  ref: RefObject<HTMLDivElement>;
   route: Route;
 }
 

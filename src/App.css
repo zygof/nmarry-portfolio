@@ -23,3 +23,13 @@
   width: 100vw;
   display: flex;
 }
+
+.logo {
+  filter: invert(29%) sepia(7%) saturate(3387%) hue-rotate(250deg)
+    brightness(94%) contrast(85%);
+}
+
+.logo.darkMode {
+  filter: invert(85%) sepia(25%) saturate(5584%) hue-rotate(193deg)
+    brightness(122%) contrast(133%);
+}

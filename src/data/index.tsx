@@ -1,6 +1,14 @@
 import React from "react";
-import { FaPalette, FaReact, FaCode } from "react-icons/fa";
-import { CgMonday } from "react-icons/cg";
+import classNames from "classnames";
+import { ReactSVG } from "react-svg";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaRegEnvelope,
+  FaPalette,
+  FaReact,
+  FaCode,
+} from "react-icons/fa";
 
 import { DataModel, LogoProps } from "../interfaces";
 
@@ -35,11 +43,24 @@ const data: DataModel = {
       icon: "📧",
     },
   ],
-  social: {
-    github: "https://github.com/zygof",
-    linkedin: "https://github.com/zygof",
-    email: "me@nmarry.fr",
-  },
+  socials: [
+    {
+      social: "GitHub",
+      link: "https://github.com/zygof",
+      icon: <FaGithub size={32} />,
+    },
+
+    {
+      social: "LinkedIn",
+      link: "https://www.linkedin.com/in/nmarry",
+      icon: <FaLinkedin size={32} />,
+    },
+    {
+      social: "Email",
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=me@nmarry.fr",
+      icon: <FaRegEnvelope size={32} />,
+    },
+  ],
   about: {
     descriptions: [
       {
@@ -128,12 +149,32 @@ const data: DataModel = {
       link: "https://github.com/braydentW/braydentw",
     },
   ],
+  profile: "/profile.png",
+  cv: "/CV-Nicolas MARRY.pdf",
 };
 
-export const Logo: React.FunctionComponent<LogoProps> = ({ onClick }) => (
-  <span className="flex flex-row cursor-pointer" onClick={onClick}>
-    <CgMonday className="text-5xl text-gray-90" />
-    <div className="flex text-2xl font-bold ml-4 mt-2">
+export const Logo: React.FunctionComponent<LogoProps> = ({
+  className,
+  isDarkMode,
+  onClick,
+}) => (
+  <span
+    className={classNames(["flex flex-row items-center", className])}
+    onClick={onClick}
+  >
+    <ReactSVG
+      src="logo.svg"
+      beforeInjection={(svg) => {
+        svg.classList.add(
+          "w-7",
+          "logo",
+          "transition-colors",
+          "duration-300",
+          isDarkMode ? "darkMode" : "default"
+        );
+      }}
+    />
+    <div className="flex text-2xl font-bold ml-2">
       <p className="text-gray-500 mr-2">{data.firstName}</p>{" "}
       <p className="text-gray-800">{data.lastName}</p>
     </div>

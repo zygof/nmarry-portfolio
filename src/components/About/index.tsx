@@ -1,4 +1,4 @@
-import React, { RefObject, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import {
   FaCircle,
@@ -9,14 +9,12 @@ import {
 import { DescriptionModel } from "../../interfaces";
 
 interface Props {
-  customRef: RefObject<HTMLDivElement>;
   descriptions: Array<DescriptionModel>;
   firstName: string;
   lastName: string;
 }
 
 const About: React.FunctionComponent<Props> = ({
-  customRef,
   descriptions,
   firstName,
   lastName,
@@ -37,7 +35,7 @@ const About: React.FunctionComponent<Props> = ({
   }
 
   return (
-    <div ref={customRef} className="component relative items-center">
+    <div className="component relative items-center">
       <FaArrowAltCircleLeft
         size={42}
         className={classNames(["left-arrow", current === 0 ? "hidden" : null])}

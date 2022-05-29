@@ -1,25 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
+interface Props {
+  isDarkMode?: boolean;
+  handle?: () => void;
+  className?: string;
+}
 
-import { DarkModeContext } from "../../contexts";
+const TogglerDarkMode: React.FunctionComponent<Props> = ({
+  isDarkMode,
+  className,
+  handle,
+}) => (
+  <div className={className} onClick={handle}>
+    {isDarkMode ? (
+      <span aria-label="Full Moon" role="img">
+        🌕
+      </span>
+    ) : (
+      <span aria-label="New Moon" role="img">
+        🌑
+      </span>
+    )}
+  </div>
+);
 
-interface Props {}
-export const TogglerDarkMode: React.FunctionComponent<Props> = () => {
-  const darkModeContext = useContext(DarkModeContext);
-
-  return (
-    <div
-      className="font-extrabold cursor-pointer"
-      onClick={darkModeContext?.toggleDarkMode}
-    >
-      {darkModeContext?.darkMode ? (
-        <span aria-label="Full Moon" role="img">
-          🌕
-        </span>
-      ) : (
-        <span aria-label="New Moon" role="img">
-          🌑
-        </span>
-      )}
-    </div>
-  );
-};
+export default TogglerDarkMode;

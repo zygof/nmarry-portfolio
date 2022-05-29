@@ -1,9 +1,8 @@
-import React, { RefObject } from "react";
+import React from "react";
 import moment from "moment";
 
 import { CareerModel } from "../../interfaces";
 interface Props {
-  customRef: RefObject<HTMLDivElement>;
   careers: Array<CareerModel>;
 }
 
@@ -14,7 +13,7 @@ interface CareerCard {
 const CareerCardLeft: React.FunctionComponent<CareerCard> = ({ career }) => (
   <div className="flex flex-row-reverse md:contents">
     <a
-      className="career col-start-1 col-end-5 p-4 my-4 sm:mr-auto rounded-xl shadow-xl text-blue-50"
+      className="career col-start-1 col-end-5 p-4 my-4 sm:mr-auto rounded-xl shadow-xl text-blue-50 transition-colors duration-300"
       href={career.link}
       rel="noreferrer"
       target="_blank"
@@ -51,7 +50,7 @@ const CareerCardRight: React.FunctionComponent<CareerCard> = ({ career }) => (
       <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-primary shadow"></div>
     </div>
     <a
-      className="career col-start-6 col-end-10 p-4 my-4 mr-auto rounded-xl shadow-xl text-blue-50"
+      className="career col-start-6 col-end-10 p-4 my-4 mr-auto rounded-xl shadow-xl text-blue-50 transition-colors duration-300"
       href={career.link}
       rel="noreferrer"
       target="_blank"
@@ -69,8 +68,8 @@ const CareerCardRight: React.FunctionComponent<CareerCard> = ({ career }) => (
   </div>
 );
 
-const Careers: React.FunctionComponent<Props> = ({ customRef, careers }) => (
-  <div ref={customRef} className="component p-10">
+const Careers: React.FunctionComponent<Props> = ({ careers }) => (
+  <div className="component p-10">
     <div className="flex flex-col md:grid grid-cols-9 m-auto">
       {careers.map((career: CareerModel, index: number) =>
         index % 2 === 0 ? (

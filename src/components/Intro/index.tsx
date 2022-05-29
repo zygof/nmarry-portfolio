@@ -1,18 +1,16 @@
-import React, { useContext, RefObject } from "react";
+import React, { useContext } from "react";
 import classNames from "classnames";
-import { FaGithub, FaLinkedin, FaRegEnvelope } from "react-icons/fa";
 
 import { DarkModeContext } from "../../contexts";
-import { DataModel } from "../../interfaces";
+import { DataModel, SocialModel } from "../../interfaces";
+
 interface Props {
-  customRef: RefObject<HTMLDivElement>;
   data: DataModel;
 }
-const Intro: React.FunctionComponent<Props> = ({ customRef, data }) => {
+const Intro: React.FunctionComponent<Props> = ({ data }) => {
   const darkModeContext = useContext(DarkModeContext);
   return (
     <main
-      ref={customRef}
       data-aos="fade-up"
       data-aos-duration="800"
       data-aos-delay="400"
@@ -20,7 +18,7 @@ const Intro: React.FunctionComponent<Props> = ({ customRef, data }) => {
     >
       <div className="avatar shadow-2xl">
         <img
-          src="/profile.png"
+          src={data.profile}
           alt="self"
           className="w-100 rounded-medium grayscale-0"
         />
@@ -28,7 +26,7 @@ const Intro: React.FunctionComponent<Props> = ({ customRef, data }) => {
       <div className="items-center px-5">
         <p
           className={classNames([
-            "text-4xl sm:text-4xl font-bold",
+            "text-4xl sm:text-4xl font-bold transition-colors duration-300",
             darkModeContext?.darkMode ? "text-blue-50" : "text-black",
           ])}
         >
@@ -37,13 +35,15 @@ const Intro: React.FunctionComponent<Props> = ({ customRef, data }) => {
         <p className="text-3xl font-semibold my-1 text-primary">{data.title}</p>
         <ul>
           {data.personalDescription.map((element, index) => (
-            <li key={index}>
-              <span className="mr-2">{element.icon}</span>
+            <li key={index} className="flex flex-row items-center">
+              <div className="flex justify-center mr-2 w-10">
+                {element.icon}
+              </div>
               <span
                 aria-label="emoji"
                 role="img"
                 className={classNames([
-                  "emoji text-base font-semibold",
+                  "emoji text-base font-semibold transition-colors duration-300 ",
                   darkModeContext?.darkMode ? "text-blue-50" : "text-black",
                 ])}
               >
@@ -52,37 +52,19 @@ const Intro: React.FunctionComponent<Props> = ({ customRef, data }) => {
             </li>
           ))}
         </ul>
-        <div className="flex align-center justify-center mt-4">
-          <a
-            className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-teal-500 hover:bg-teal-500 rounded-full hover:text-blue-50 transition-colors duration-300"
-            href={
-              "https://mail.google.com/mail/?view=cm&fs=1&to=" +
-              data.social.email
-            }
-            rel="noreferrer"
-            target="_blank"
-          >
-            <FaRegEnvelope size={24} />
-            <span className="sr-only">Email</span>
-          </a>
-          <a
-            className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-gray-800 hover:bg-gray-800 rounded-full hover:text-blue-50 transition-colors duration-300"
-            href={data.social.github}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <FaGithub size={24} />
-            <span className="sr-only">Github</span>
-          </a>
-          <a
-            className="text-xl m-1 p-1 sm:m-2 sm:p-2 text-blue-500 hover:bg-blue-500 rounded-full hover:text-blue-50 transition-colors duration-300"
-            href={data.social.linkedin}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <FaLinkedin size={24} />
-            <span className="sr-only">Linkedin</span>
-          </a>
+        <div className="flex align-center justify-center pt-2">
+          {data.socials.map((social: SocialModel, index: number) => (
+            <a
+              key={index}
+              className="flex flex-col items-center p-1 sm:m-2 sm:p-2 text-xl text-primary hover:text-gray-500 rounded-full transition-colors duration-300"
+              href={social.link}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {social.icon}
+              <span className="mt-1 text-sm font-bold">{social.social}</span>
+            </a>
+          ))}
         </div>
       </div>
     </main>
