@@ -47,8 +47,23 @@ export interface DataModel {
   careers: Array<CareerModel>;
 }
 
+export interface LogoProps {
+  onClick?: () => void;
+}
+
 export interface RouteModel {
   id: number;
   ref: RefObject<HTMLDivElement>;
   route: Route;
+}
+
+export interface RouteContextInterface {
+  routes: Array<RouteModel>;
+  handleRoutes: (routes: Array<RouteModel>) => void;
+  prevRoute: RouteModel | null;
+  currentRoute: RouteModel | null;
+  nextRoute: RouteModel | null;
+  handleRoute: (page: number) => void;
+  goToPrevRoute: () => void;
+  goToNextRoute: () => void;
 }

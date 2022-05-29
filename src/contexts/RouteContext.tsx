@@ -1,20 +1,9 @@
 import React, { createContext, useState } from "react";
 
-import { RouteModel } from "../interfaces";
+import { RouteModel, RouteContextInterface } from "../interfaces";
 
 interface Props {
   children: React.FunctionComponent;
-}
-
-interface RouteContextInterface {
-  routes: Array<RouteModel>;
-  handleRoutes: (routes: Array<RouteModel>) => void;
-  prevRoute: RouteModel | null;
-  currentRoute: RouteModel | null;
-  nextRoute: RouteModel | null;
-  handleRoute: (page: number) => void;
-  goToPrevRoute: () => void;
-  goToNextRoute: () => void;
 }
 
 const RouteContext = createContext<RouteContextInterface | null>(null);

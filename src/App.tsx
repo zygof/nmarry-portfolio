@@ -18,7 +18,6 @@ import NextButton from "./components/NextButton";
 import data, { Route } from "./data";
 
 import "./App.css";
-import "./components/Navbar/Navbar.css";
 import "./components/Intro/Intro.css";
 import "./components/About/About.css";
 import "./components/Careers/Careers.css";

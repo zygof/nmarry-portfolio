@@ -1,14 +1,15 @@
 import React from "react";
 import { FaPalette, FaReact, FaCode } from "react-icons/fa";
+import { CgMonday } from "react-icons/cg";
 
-import { DataModel } from "../interfaces";
+import { DataModel, LogoProps } from "../interfaces";
 
 export enum Route {
   INTRO = "Intro",
   ABOUT = "À propos",
   CAREERS = "Formations",
   SKILLS = "Compétences",
-  PROJECTS = "Mes Projets",
+  PROJECTS = "Projets",
   CONTACT = "Contact",
 }
 
@@ -128,5 +129,15 @@ const data: DataModel = {
     },
   ],
 };
+
+export const Logo: React.FunctionComponent<LogoProps> = ({ onClick }) => (
+  <span className="flex flex-row cursor-pointer" onClick={onClick}>
+    <CgMonday className="text-5xl text-gray-90" />
+    <div className="flex text-2xl font-bold ml-4 mt-2">
+      <p className="text-gray-500 mr-2">{data.firstName}</p>{" "}
+      <p className="text-gray-800">{data.lastName}</p>
+    </div>
+  </span>
+);
 
 export default data;

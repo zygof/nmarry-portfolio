@@ -11,7 +11,7 @@ const NextButton: React.FunctionComponent<Props> = () => {
       className="hidden lg:inline-flex justify-center fixed nextButton"
       onClick={routeContext?.goToNextRoute}
     >
-      <div className="flex justify-center py-10 z-40 cursor-pointer">
+      <div className="flex justify-center py-10 z-50 cursor-pointer">
         <div className="chevron"></div>
         <div className="chevron"></div>
         <div className="chevron"></div>
