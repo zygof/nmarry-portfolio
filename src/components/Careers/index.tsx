@@ -69,7 +69,7 @@ const CareerCardRight: React.FunctionComponent<CareerCard> = ({ career }) => (
 );
 
 const Careers: React.FunctionComponent<Props> = ({ careers }) => (
-  <div className="component p-10">
+  <section className="component p-10">
     <div className="flex flex-col md:grid grid-cols-9 m-auto">
       {careers.map((career: CareerModel, index: number) =>
         index % 2 === 0 ? (
@@ -79,7 +79,7 @@ const Careers: React.FunctionComponent<Props> = ({ careers }) => (
         )
       )}
     </div>
-  </div>
+  </section>
 );
 
 export default Careers;

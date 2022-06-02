@@ -1,9 +1,8 @@
-import React, { useEffect, useContext, useMemo } from "react";
+import React, { useEffect, useContext } from "react";
 import ReactPageScroller from "react-page-scroller";
 import classNames from "classnames";
 import AOS from "aos";
 
-import { RouteModel } from "./interfaces";
 import { RouteContext, DarkModeContext } from "./contexts";
 
 import Navbar from "./components/Navbar";
@@ -16,7 +15,7 @@ import Skills from "./components/Skills";
 import CVDownload from "./components/CVDownload";
 import NextButton from "./components/NextButton";
 
-import data, { Route } from "./data";
+import data from "./data";
 
 import "aos/dist/aos.css";
 import "react-multi-carousel/lib/styles.css";
@@ -25,6 +24,8 @@ import "./components/Navbar/Navbar.css";
 import "./components/Intro/Intro.css";
 import "./components/About/About.css";
 import "./components/Careers/Careers.css";
+import "./components/Skills/Skills.css";
+import "./components/Projects/Projects.css";
 import "./components/NextButton/NextButton.css";
 import "./components/CVDownload/CVDownload.css";
 
@@ -32,23 +33,11 @@ const App = () => {
   const routeContext = useContext(RouteContext);
   const darkModeContext = useContext(DarkModeContext);
 
-  const routes: Array<RouteModel> = useMemo(
-    () => [
-      { id: 0, route: Route.INTRO },
-      { id: 1, route: Route.ABOUT },
-      { id: 2, route: Route.CAREERS },
-      { id: 3, route: Route.SKILLS },
-      { id: 4, route: Route.PROJECTS },
-    ],
-    []
-  );
-
   useEffect(() => {
-    routeContext?.handleRoutes(routes);
     AOS.init({
       once: true,
     });
-  }, [routeContext, routes]);
+  });
 
   return (
     <React.Fragment>

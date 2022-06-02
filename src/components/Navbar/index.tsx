@@ -17,6 +17,9 @@ const Navbar: React.FunctionComponent = () => {
 
   return (
     <nav
+      data-aos="fade-down"
+      data-aos-duration="800"
+      data-aos-delay="400"
       className={classNames([
         "flex justify-between items-center fixed w-screen pt-10 z-40",
         isMobile ? "flex-col px-5" : "flex-row px-16",

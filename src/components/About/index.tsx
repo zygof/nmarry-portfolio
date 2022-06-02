@@ -35,7 +35,7 @@ const About: React.FunctionComponent<Props> = ({
   }
 
   return (
-    <div className="component relative items-center">
+    <section className="component relative items-center">
       <FaArrowAltCircleLeft
         size={42}
         className={classNames(["left-arrow", current === 0 ? "hidden" : null])}
@@ -79,7 +79,7 @@ const About: React.FunctionComponent<Props> = ({
           </div>
         ))}
       </section>
-    </div>
+    </section>
   );
 };
 

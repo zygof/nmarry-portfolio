@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import classNames from "classnames";
 
-import { DarkModeContext } from "../../contexts";
 import { DataModel, SocialModel } from "../../interfaces";
+import { DarkModeContext } from "../../contexts";
 
 interface Props {
   data: DataModel;
@@ -10,11 +10,11 @@ interface Props {
 const Intro: React.FunctionComponent<Props> = ({ data }) => {
   const darkModeContext = useContext(DarkModeContext);
   return (
-    <main
+    <section
       data-aos="fade-up"
       data-aos-duration="800"
       data-aos-delay="400"
-      className="component"
+      className="component section-intro"
     >
       <div className="avatar shadow-2xl">
         <img
@@ -37,7 +37,7 @@ const Intro: React.FunctionComponent<Props> = ({ data }) => {
           {data.personalDescription.map((element, index) => (
             <li key={index} className="flex flex-row items-center">
               <div className="flex justify-center mr-2 w-10">
-                {element.icon}
+                {element.icon()}
               </div>
               <span
                 aria-label="emoji"
@@ -67,7 +67,7 @@ const Intro: React.FunctionComponent<Props> = ({ data }) => {
           ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

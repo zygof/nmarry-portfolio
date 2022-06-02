@@ -2,6 +2,8 @@ import React, { createContext, useState } from "react";
 
 import { RouteModel, RouteContextInterface } from "../interfaces";
 
+import { Route } from "../data";
+
 interface Props {
   children: React.FunctionComponent;
 }
@@ -9,7 +11,13 @@ interface Props {
 const RouteContext = createContext<RouteContextInterface | null>(null);
 
 const RouteProvider: React.FunctionComponent<Props> = ({ children }) => {
-  const [routes, setRoutes] = useState<Array<RouteModel>>([]);
+  const [routes, setRoutes] = useState<Array<RouteModel>>([
+    { id: 0, route: Route.INTRO },
+    { id: 1, route: Route.ABOUT },
+    { id: 2, route: Route.CAREERS },
+    { id: 3, route: Route.SKILLS },
+    { id: 4, route: Route.PROJECTS },
+  ]);
   const [prevRoute, setPrevRoute] = useState<RouteModel | null>(null);
   const [currentRoute, setCurrentRoute] = useState<RouteModel | null>(
     routes.length > 0 ? routes[0] : null

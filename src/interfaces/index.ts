@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { IconBaseProps } from "react-icons";
 
 import { Route } from "../data";
 export interface DescriptionModel {
@@ -8,7 +9,7 @@ export interface DescriptionModel {
 
 export interface PersonalDescriptionModel {
   description: string;
-  icon: ReactElement<any, any> | string;
+  icon: (props?: IconBaseProps) => ReactElement<IconBaseProps, any> | string;
 }
 
 export interface SocialModel {
@@ -17,16 +18,41 @@ export interface SocialModel {
   icon: ReactElement<any, any>;
 }
 
-export interface SkillModel {
+export interface SkillElementModel {
   name: string;
-  icon: ReactElement<any, any>;
+  icon: (props?: IconBaseProps) => ReactElement<IconBaseProps, any>;
+}
+export interface SkillModel {
+  type: string;
+  elements: Array<SkillElementModel>;
 }
 
+export enum Statut {
+  TEST = "EN TEST",
+  IN_PROGRESS = "EN COURS",
+  DONED = "TERMINÉ",
+  DEPLOYED = "DÉPLOYÉE",
+}
+
+export enum Platform {
+  WEB = "WEB",
+  ANDROID = "ANDROID",
+  IOS = "IOS",
+  DESKTOP = "DESKTOP",
+}
+export enum ProjectType {
+  PRO = "PRO",
+  SCHOOL = "SCHOOL",
+  PERSONAL = "PERSO",
+}
 export interface ProjectModel {
-  title: string;
+  name: string;
+  statut: Statut;
+  type: ProjectType;
+  platforms: Array<Platform>;
   description: string;
-  tags: Array<string>;
-  link: string;
+  synopsis?: string;
+  technologies: Array<string>;
 }
 
 export interface CareerModel {

@@ -1,16 +1,16 @@
 import React from "react";
 import classNames from "classnames";
 import { ReactSVG } from "react-svg";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaRegEnvelope,
-  FaPalette,
-  FaReact,
-  FaCode,
-} from "react-icons/fa";
+import { IconBaseProps } from "react-icons";
+import { FaGithub, FaLinkedin, FaRegEnvelope, FaCode } from "react-icons/fa";
 
-import { DataModel, LogoProps } from "../interfaces";
+import {
+  DataModel,
+  LogoProps,
+  Statut,
+  ProjectType,
+  Platform,
+} from "../interfaces";
 
 export enum Route {
   INTRO = "Intro",
@@ -28,19 +28,19 @@ const data: DataModel = {
   personalDescription: [
     {
       description: "Passionné de sport",
-      icon: "🏸",
+      icon: () => "🏸",
     },
     {
       description: "Situé à la Réunion",
-      icon: "🇷🇪",
+      icon: () => "🇷🇪",
     },
     {
       description: "En recherche d'emploi",
-      icon: "🖥️",
+      icon: () => "🖥️",
     },
     {
       description: "me@nmarry.fr",
-      icon: "📧",
+      icon: () => "📧",
     },
   ],
   socials: [
@@ -114,39 +114,187 @@ const data: DataModel = {
   ],
   skills: [
     {
-      name: "Frontend",
-      icon: <FaCode className="text-4xl mx-auto inline-block" />,
+      type: "Frontend",
+      elements: [
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+      ],
     },
     {
-      name: "Design/UX",
-      icon: <FaPalette className="text-4xl mx-auto inline-block" />,
+      type: "Backend",
+      elements: [
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+      ],
     },
     {
-      name: "ReactJS",
-      icon: <FaReact className="text-4xl mx-auto inline-block" />,
-    },
-    {
-      name: "Frontend",
-      icon: <FaCode className="text-4xl mx-auto inline-block" />,
-    },
-    {
-      name: "Design/UX",
-      icon: <FaPalette className="text-4xl mx-auto inline-block" />,
+      type: "Soft skill",
+      elements: [
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+        {
+          name: "React",
+          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+        },
+      ],
     },
   ],
   projects: [
     {
-      title: "React tailwind portfolio",
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
       description:
-        "👨‍🎨 An open-source portfolio template built with React and Tailwind.",
-      tags: ["template", "portfolio", "reactjs", "tailwindcss"],
-      link: "https://github.com/braydentw/react-tailwind-portfolio",
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
     },
     {
-      title: "My personal website",
-      description: "⚡ My portfolio built with NextJS and TailwindCSS.",
-      tags: ["website", "portfolio", "nextjs", "tailwindcss"],
-      link: "https://github.com/braydentW/braydentw",
+      name: "ISIS Diabète",
+      statut: Statut.DEPLOYED,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.DONED,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.TEST,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
+    },
+    {
+      name: "ISIS Diabète",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB, Platform.ANDROID],
+      description:
+        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
+      synopsis: "",
+      technologies: ["React", "Express JS", "MongoDB"],
     },
   ],
   profile: "/profile.png",

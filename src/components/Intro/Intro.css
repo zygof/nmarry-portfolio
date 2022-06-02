@@ -1,4 +1,4 @@
-main {
+.section-intro {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -10,52 +10,52 @@ main {
 }
 
 @media only screen and (max-width: 1024px) {
-  main {
+  .section-intro {
     margin-top: 10px;
   }
 }
 
 @media only screen and (min-width: 1025px) {
-  main {
+  .section-intro {
     flex-direction: row;
     justify-content: center;
   }
 }
 
 @media only screen and (min-width: 940px) {
-  main h1 {
+  .section-intro h1 {
     font-size: 3rem;
     text-align: left;
   }
 }
 
-main h2 {
+.section-intro h2 {
   font-size: 1.5rem;
   text-align: center;
 }
 @media only screen and (min-width: 940px) {
-  main h2 {
+  .section-intro h2 {
     font-size: 2rem;
     text-align: left;
   }
 }
 
-main ul {
+.section-intro ul {
   padding: 0.8rem;
 }
 
-main li {
+.section-intro li {
   font-size: 1.2rem;
   line-height: 1.8;
 }
 
-main .emoji {
+.section-intro .emoji {
   margin-right: 0.5rem;
   font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 940px) {
-  main .emoji {
+  .section-intro .emoji {
     margin-right: 1rem;
   }
 }
