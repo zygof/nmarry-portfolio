@@ -1,0 +1,131 @@
+.terminal {
+  width: 80%;
+  border-radius: 0.5rem;
+
+  @media only screen and (min-width: 940px) {
+    width: 50%;
+  }
+}
+
+.topRow {
+  background-color: #bdc6ce;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 1rem;
+}
+@media only screen and (min-width: 940px) {
+  .topRow {
+    font-size: 1.3rem;
+  }
+}
+
+.topRow svg {
+  padding-left: 0.5rem;
+}
+
+.window {
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: black;
+  color: white;
+}
+@media only screen and (min-width: 940px) {
+  .window {
+    padding: 2rem 3rem;
+  }
+}
+
+.window p,
+.window li {
+  font-family: "Courier New", Courier, monospace;
+  margin: 1.3rem 0;
+}
+
+@media only screen and (min-width: 940px) {
+  .window p,
+  .window li {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+  }
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  font-size: 3rem;
+  color: var(--primary);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  opacity: 30%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .right-arrow {
+    right: 2%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .right-arrow {
+    top: 75%;
+  }
+}
+
+.right-arrow:hover {
+  opacity: 100%;
+}
+
+.right-arrow:active {
+  opacity: 50%;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  font-size: 3rem;
+  color: var(--primary);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  opacity: 30%;
+}
+@media only screen and (max-width: 1024px) {
+  .left-arrow {
+    left: 2%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .left-arrow {
+    top: 75%;
+  }
+}
+
+.left-arrow:hover {
+  opacity: 100%;
+}
+
+.left-arrow:active {
+  opacity: 50%;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+.slide.disabled {
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}

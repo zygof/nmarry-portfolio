@@ -1,71 +1,77 @@
 import React, { useEffect, useContext } from "react";
+import ReactPageScroller from "react-page-scroller";
+import classNames from "classnames";
 import AOS from "aos";
 
-import { DarkModeContext } from "./contexts/DarkModeContext";
-import useNavigation from "./hooks/useNavigation";
+import { RouteContext, DarkModeContext } from "./contexts";
+
 import Navbar from "./components/Navbar";
-import Tabbar from "./components/Tabbar";
 import About from "./components/About";
-import Card from "./components/Card";
-import Career from "./components/Career";
-import Footer from "./components/Footer";
+import Intro from "./components/Intro";
+import Careers from "./components/Careers";
+//import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import data from "./assets/data";
+import CVDownload from "./components/CVDownload";
+import NextButton from "./components/NextButton";
 
-import "./App.css";
+import data from "./data";
+
 import "aos/dist/aos.css";
+import "react-multi-carousel/lib/styles.css";
+import "./App.css";
+import "./components/Navbar/Navbar.css";
+import "./components/Intro/Intro.css";
+import "./components/About/About.css";
+import "./components/Careers/Careers.css";
+import "./components/Skills/Skills.css";
+import "./components/Projects/Projects.css";
+import "./components/NextButton/NextButton.css";
+import "./components/CVDownload/CVDownload.css";
 
-function App() {
-  const { currentRoute, setCurrentRoute } = useNavigation();
+const App = () => {
+  const routeContext = useContext(RouteContext);
   const darkModeContext = useContext(DarkModeContext);
-  const navigationData: Array<string> = [
-    "À propos",
-    "Formations",
-    "Mes projets",
-    "Contact",
-  ];
+
   useEffect(() => {
     AOS.init({
       once: true,
     });
   });
+
   return (
-    <div
-      className={`min-h-screen ${
-        darkModeContext?.darkMode ? "bg-gray-900" : "bg-white"
-      }`}
-    >
-      <Navbar
-        navigationData={navigationData}
-        currentRoute={currentRoute}
-        setCurrentRoute={setCurrentRoute}
-        firstName={data.firstName}
-        lastName={data.lastName}
-      />
-      <div className="py-10 px-3 sm:px-5">
-        <div data-aos="fade-down" data-aos-duration="800">
-          <Card
-            name={data.firstName}
-            title={data.title}
-            social={data.social}
-            personalDescription={data.personalDescription}
+    <React.Fragment>
+      <div
+        className={classNames([
+          "transition-colors duration-300",
+          darkModeContext?.darkMode ? "bg-gray-900" : "bg-blue-50",
+        ])}
+      >
+        <Navbar />
+        <ReactPageScroller
+          customPageNumber={routeContext?.currentRoute?.id || 0}
+          onBeforePageScroll={routeContext?.handleRoute}
+          pageOnChange={routeContext?.handleRoute}
+          renderAllPagesOnFirstRender
+          blockScrollUp={false}
+        >
+          <Intro data={data} />
+          <About
+            firstName={data.firstName}
+            lastName={data.lastName}
+            descriptions={data.about.descriptions}
           />
-        </div>
-        <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <About descriptions={data.about.descriptions} />
-          <Career careers={data.careers} />
+          <Careers careers={data.careers} />
           <Skills skills={data.skills} />
           <Projects projects={data.projects} />
-          <Footer github={data.social.github} />
-        </div>
+        </ReactPageScroller>
+        {data.cv ? <CVDownload file={data.cv} /> : null}
+        {routeContext?.nextRoute ? <NextButton /> : null}
+        {/*!routeContext?.nextRoute ? (
+          <Footer socials={data.socials} />
+        ) : null*/}
       </div>
-      <Tabbar
-        navigationData={navigationData}
-        currentRoute={currentRoute}
-        setCurrentRoute={setCurrentRoute}
-      />
-    </div>
+    </React.Fragment>
   );
-}
+};
 export default App;

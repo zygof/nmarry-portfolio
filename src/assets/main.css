@@ -14475,6 +14475,10 @@ video {
   left: 0;
 }
 
+.left-50 {
+  left: 50%;
+}
+
 .top-auto {
   top: auto;
 }
