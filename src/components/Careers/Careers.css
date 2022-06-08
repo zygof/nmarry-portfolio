@@ -1,0 +1,9 @@
+.career {
+  background-color: var(--primary);
+  cursor: pointer;
+  width: 100%;
+}
+
+.career:hover {
+  background-color: var(--domain);
+}
