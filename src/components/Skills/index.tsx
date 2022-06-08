@@ -15,7 +15,7 @@ const Skills: React.FunctionComponent<Props> = ({ skills }) => {
   return (
     <section className="component flex flex-col items-center justify-center">
       {skills.map((skill: SkillModel) => (
-        <div className="flex flex-col items-center my-5">
+        <div className="flex flex-col items-center my-3">
           <p
             className={classNames([
               "text-2xl font-bold transition-colors duration-300 mb-5",
@@ -24,7 +24,10 @@ const Skills: React.FunctionComponent<Props> = ({ skills }) => {
           >
             {skill.type}
           </p>
-          <SkillElements elements={skill.elements} />
+          <SkillElements
+            elements={skill.elements}
+            isDarkMode={darkModeContext?.darkMode}
+          />
         </div>
       ))}
     </section>

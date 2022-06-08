@@ -33,6 +33,7 @@ const data: DataModel = {
     {
       description: "Situé à la Réunion",
       icon: () => "🇷🇪",
+      hasLink: "https://goo.gl/maps/dHsYDfaHf1ATLnHGA",
     },
     {
       description: "En recherche d'emploi",
@@ -41,6 +42,7 @@ const data: DataModel = {
     {
       description: "me@nmarry.fr",
       icon: () => "📧",
+      hasLink: "mailto:me@nmarry.fr",
     },
   ],
   socials: [
@@ -173,88 +175,122 @@ const data: DataModel = {
       platforms: [Platform.WEB, Platform.ANDROID],
       description:
         "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
       technologies: ["React", "Express JS", "MongoDB"],
     },
     {
-      name: "ISIS Diabète",
+      name: "Influx",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.SCHOOL,
+      platforms: [Platform.IOS, Platform.ANDROID],
+      description:
+        "Application de rencontre entre des micro-influenceurs et entreprises. L'entreprise se fait connaître de tous par le biai d'influenceur en échange d'une contre partie.",
+      technologies: ["React Native", "Firebase", "Express JS", "MongoDB"],
+    },
+    {
+      name: "OUTTA Project",
+      statut: Statut.DONED,
+      type: ProjectType.PERSONAL,
+      platforms: [Platform.IOS, Platform.ANDROID],
+      description:
+        "Application listant les reductions proposées par des restaurants à proximités pour la consommation sur place. Le but est de dynamisé le traffic client durant la periode post-confinement.",
+      technologies: ["React Native", "Firebase", "Express JS", "MongoDB"],
+    },
+
+    {
+      name: "MySeance",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PERSONAL,
+      platforms: [Platform.ANDROID, Platform.IOS],
+      description:
+        "Gestion de pointage d'adhérent de club de sport. Intégration d'un système de statistique du trafic de présence.",
+      technologies: ["C#", "MongoDB", "Kotlin"],
+    },
+
+    {
+      name: "StatMag",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PERSONAL,
+      platforms: [Platform.WEB, Platform.DESKTOP],
+      description:
+        "Consultation des statistiques de ventes magasin. Une partie application desktop est intégrée pour la partie administration.",
+      technologies: ["Java FX", "Spring Boot", "PHP", "Javascript", "bash"],
+    },
+
+    {
+      name: "InventaireDEE",
       statut: Statut.DEPLOYED,
       type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
+      platforms: [Platform.DESKTOP],
       description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
+        "Gestion d’inventaire matériel pour recyclage. Exportation format E-DECHET.",
+      technologies: ["Java FX"],
     },
+
     {
-      name: "ISIS Diabète",
+      name: "MyStock",
+      statut: Statut.TEST,
+      type: ProjectType.PRO,
+      platforms: [Platform.WEB],
+      description: "Gestion de stock matériel informatique.",
+      technologies: ["SQL Server", "PHP", "Javascript"],
+    },
+
+    {
+      name: "QCMExpernet",
       statut: Statut.DONED,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
+      type: ProjectType.SCHOOL,
+      platforms: [Platform.DESKTOP],
       description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
+        "Gestion de questionnaire d'évaluation d'entrée. Consultation des statistiques questionnaires intégrées.",
+      technologies: ["SQL Server", "Java FX"],
     },
+
     {
-      name: "ISIS Diabète",
+      name: "ANCA",
+      statut: Statut.IN_PROGRESS,
+      type: ProjectType.PERSONAL,
+      platforms: [Platform.WEB],
+      description:
+        "Centralisation des données de tout les refuges animaux de île de la Réunion. Système de suivi médical des animaux.",
+      technologies: ["Angular", "PostgreSQL", "TypeORM"],
+    },
+
+    {
+      name: "GLPI Client",
       statut: Statut.TEST,
       type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
+      platforms: [Platform.DESKTOP],
+      description: "Système de gestion des tickets GLPI pour les employés.",
+      technologies: ["JavaFX"],
     },
+
     {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
+      name: "NMARRY-Project",
+      statut: Statut.DEPLOYED,
+      type: ProjectType.PERSONAL,
+      platforms: [Platform.WEB],
+      description: "Portfolio PERSO.",
+      technologies: ["VueJS", "Vuetify"],
     },
+
     {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
+      name: "CaddyRUN",
+      statut: Statut.DONED,
+      type: ProjectType.SCHOOL,
+      platforms: [Platform.ARDUINO],
       description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
+        "Projet Bac S SI : Conception d'un caddie électrique pour les personnes à mobilité réduite.",
+      technologies: ["Arduino", "C#"],
     },
+
     {
-      name: "ISIS Diabète",
-      statut: Statut.TEST,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
+      name: "Ball Balance",
+      statut: Statut.DONED,
+      type: ProjectType.SCHOOL,
+      platforms: [Platform.ARDUINO],
       description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
-    },
-    {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
-    },
-    {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
+        "BAC S Spécialité ISN : Conception d'un plateau à système d'asservissement.",
+      technologies: ["Arduino", "C#"],
     },
   ],
   profile: "/profile.png",

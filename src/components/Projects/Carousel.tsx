@@ -55,8 +55,8 @@ const Carousel: React.FunctionComponent<Props> = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col w-100 h-100">
-      <div className="flex w-100">
+    <div className="flex flex-col">
+      <div className="flex">
         <div
           className="carousel-content-wrapper"
           onTouchStart={handleTouchStart}
@@ -74,7 +74,7 @@ const Carousel: React.FunctionComponent<Props> = ({ children }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-center space-x-20 py-10">
+      <div className="arrow-container flex flex-row justify-center space-x-20 py-5">
         <FaArrowAltCircleLeft
           size={42}
           className={ClassNames([

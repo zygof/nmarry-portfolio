@@ -1,5 +1,6 @@
 import React from "react";
-import { FaCog, FaLightbulb } from "react-icons/fa";
+import { FcIdea } from "react-icons/fc";
+import { FaCog } from "react-icons/fa";
 
 import { ProjectCardProps, Platform } from "../../interfaces";
 import IconPlaform from "./IconPlatform";
@@ -11,7 +12,7 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
 }) => (
   <div className="project-card flex flex-col cursor-pointer p-3 rounded-xl">
     <div className="flex flex-row mb-3">
-      <FaLightbulb className="flex justify-center bg-blue-50 rounded-lg p-3 w-24 h-full max-h-[90px] shadow-xl" />
+      <FcIdea className="flex justify-center bg-blue-50 rounded-lg p-3 w-24 h-full max-h-[90px] shadow-xl" />
 
       <div className="flex flex-col flex-1 justify-start items-start pl-5 space-y-2">
         <span className="text-xl font-semibold text-blue-50 transition-colors duration-300">

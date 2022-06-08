@@ -73,15 +73,17 @@
   z-index: 10;
   cursor: pointer;
   user-select: none;
+  opacity: 100%;
+}
+.arrow-container {
+  visibility:visible;
+}
+.project-right-arrow:hover {
   opacity: 30%;
 }
 
-.project-right-arrow:hover {
-  opacity: 100%;
-}
-
 .project-right-arrow:active {
-  opacity: 50%;
+  opacity: 30%;
 }
 
 .project-left-arrow {
@@ -90,13 +92,13 @@
   z-index: 10;
   cursor: pointer;
   user-select: none;
-  opacity: 30%;
-}
-
-.project-left-arrow:hover {
   opacity: 100%;
 }
 
+.project-left-arrow:hover {
+  opacity: 30%;
+}
+
 .project-left-arrow:active {
-  opacity: 50%;
+  opacity: 30%;
 }

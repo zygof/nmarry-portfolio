@@ -10,6 +10,7 @@ export interface DescriptionModel {
 export interface PersonalDescriptionModel {
   description: string;
   icon: (props?: IconBaseProps) => ReactElement<IconBaseProps, any> | string;
+  hasLink?: string;
 }
 
 export interface SocialModel {
@@ -39,6 +40,7 @@ export enum Platform {
   ANDROID = "ANDROID",
   IOS = "IOS",
   DESKTOP = "DESKTOP",
+  ARDUINO = "ARDUINO",
 }
 export enum ProjectType {
   PRO = "PRO",

@@ -3,6 +3,7 @@ import { IconBaseProps } from "react-icons";
 
 import { Platform } from "../../interfaces";
 import { FaGlobe, FaAndroid, FaAppStoreIos, FaDesktop } from "react-icons/fa";
+import { SiArduino } from "react-icons/si";
 
 interface IconPlatformProps {
   platform: Platform;
@@ -22,6 +23,8 @@ const IconPlatform: React.FunctionComponent<IconPlatformProps> = ({
       return <FaAndroid {...settings} />;
     case Platform.IOS:
       return <FaAppStoreIos {...settings} />;
+    case Platform.ARDUINO:
+      return <SiArduino {...settings} />;
 
     default:
       return <FaGlobe {...settings} />;

@@ -27,7 +27,7 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
       >
         <p
           className={classNames([
-            "text-center text-xl font-medium whitespace-no-wrap hover:text-gray-600 transition-colors duration-300",
+            "text-center text-xl font-bold whitespace-no-wrap hover:text-gray-600 transition-colors duration-300",
             isDarkMode ? "text-blue-50" : "text-primary",
           ])}
         >
@@ -35,7 +35,7 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
         </p>
         <span
           className={classNames([
-            "w-full h-1.5 rounded-full dark:bg-gray-700",
+            "flex w-full h-1 rounded-full dark:bg-gray-700",
             routeContext?.currentRoute?.id === item.id
               ? "bg-primary"
               : "hidden",

@@ -36,18 +36,25 @@ const Intro: React.FunctionComponent<Props> = ({ data }) => {
         <ul>
           {data.personalDescription.map((element, index) => (
             <li key={index} className="flex flex-row items-center">
-              <div className="flex justify-center mr-2 w-10">
+              <div className="flex justify-center mr-2 w-10 hover:underline">
                 {element.icon()}
               </div>
               <span
                 aria-label="emoji"
                 role="img"
                 className={classNames([
-                  "emoji text-base font-semibold transition-colors duration-300 ",
+                  "emoji text-base font-semibold transition-colors duration-300",
+                  element.hasLink ? "hover:underline hover:cursor-pointer" : "",
                   darkModeContext?.darkMode ? "text-blue-50" : "text-black",
                 ])}
               >
-                {element.description}
+                {element.hasLink ? (
+                  <a href={element.hasLink} rel="noreferrer" target="_blank">
+                    {element.description}
+                  </a>
+                ) : (
+                  element.description
+                )}
               </span>
             </li>
           ))}

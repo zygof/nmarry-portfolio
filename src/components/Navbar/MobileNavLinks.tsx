@@ -35,7 +35,7 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
       >
         <p
           className={classNames([
-            "text-center text-xl font-medium w-full hover:text-gray-600",
+            "text-center text-xl font-bold w-full hover:text-gray-600",
             isDarkMode ? "text-primary" : "text-blue-50",
           ])}
         >
