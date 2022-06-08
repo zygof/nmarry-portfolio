@@ -55,6 +55,10 @@ export interface ProjectModel {
   technologies: Array<string>;
 }
 
+export interface ProjectCardProps {
+  project: ProjectModel;
+  isDarkMode?: boolean;
+}
 export interface CareerModel {
   title: string;
   diploma: string;

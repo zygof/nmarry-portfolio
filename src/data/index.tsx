@@ -228,47 +228,7 @@ const data: DataModel = {
     },
     {
       name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
-    },
-    {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
-    },
-    {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
-    },
-    {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
-      type: ProjectType.PRO,
-      platforms: [Platform.WEB, Platform.ANDROID],
-      description:
-        "Gestion prescriptions des appareils médicaux destinés aux patients atteints du diabète.",
-      synopsis: "",
-      technologies: ["React", "Express JS", "MongoDB"],
-    },
-    {
-      name: "ISIS Diabète",
-      statut: Statut.IN_PROGRESS,
+      statut: Statut.TEST,
       type: ProjectType.PRO,
       platforms: [Platform.WEB, Platform.ANDROID],
       description:

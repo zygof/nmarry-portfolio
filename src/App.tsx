@@ -53,6 +53,7 @@ const App = () => {
           onBeforePageScroll={routeContext?.handleRoute}
           pageOnChange={routeContext?.handleRoute}
           renderAllPagesOnFirstRender
+          blockScrollUp={false}
         >
           <Intro data={data} />
           <About

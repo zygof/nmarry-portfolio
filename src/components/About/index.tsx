@@ -49,7 +49,7 @@ const About: React.FunctionComponent<Props> = ({
         ])}
         onClick={nextSlide}
       />
-      <section className="flex items-center justify-center sm:px-6 md:px-5 lg:px-10">
+      <div className="flex items-center justify-center sm:px-6 md:px-5 lg:px-10">
         {descriptions.map((description: DescriptionModel, index: number) => (
           <div
             key={index}
@@ -78,7 +78,7 @@ const About: React.FunctionComponent<Props> = ({
             </div>
           </div>
         ))}
-      </section>
+      </div>
     </section>
   );
 };

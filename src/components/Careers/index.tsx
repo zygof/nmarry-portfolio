@@ -55,9 +55,13 @@ const CareerCardRight: React.FunctionComponent<CareerCard> = ({ career }) => (
       rel="noreferrer"
       target="_blank"
     >
-      <h3 className="font-semibold text-lg mb-1">{`${moment(career.from).format(
-        "YYYY"
-      )}${career.to ? " - " + moment(career.to).format("YYYY") : ""}`}</h3>
+      <h3 className="font-semibold text-lg mb-1">
+        {career.to
+          ? moment(career.to).format("YYYY") +
+            " - " +
+            moment(career.from).format("YYYY")
+          : moment(career.from).format("YYYY")}
+      </h3>
       <p className="leading-tight text-justify font-medium ">
         {career.diploma}
         <span className="font-extralight text-md ml-2">{career.location}</span>

@@ -19,9 +19,9 @@ const StatutElement: React.FunctionComponent<IconStatutProps> = ({
     case Statut.IN_PROGRESS:
       return <p className={classNames([className, "bg-orange-600"])}>{Statut.IN_PROGRESS}</p>;
     case Statut.DONED:
-      return <p className={classNames([className, "bg-green-400"])}>{Statut.DONED}</p>;
+      return <p className={classNames([className, "bg-green-500"])}>{Statut.DONED}</p>;
     case Statut.DEPLOYED:
-      return <p className={classNames([className, "bg-green-600"])}>{Statut.DEPLOYED}</p>;
+      return <p className={classNames([className, "bg-green-800"])}>{Statut.DEPLOYED}</p>;
     default:
       return <p className={classNames([className, "bg-orange-600"])}>{Statut.IN_PROGRESS}</p>;
   }
