@@ -7,7 +7,7 @@ import useAnalyticsEventTracker from "../useAnalyticsEventTracker";
 import { Route } from "../data";
 
 interface Props {
-  children: React.FunctionComponent;
+  children: React.ReactNode;
 }
 
 const RouteContext = createContext<RouteContextInterface | null>(null);

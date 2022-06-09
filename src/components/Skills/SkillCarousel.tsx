@@ -74,7 +74,7 @@ const SkillCarousel: React.FunctionComponent<Props> = ({
             <FaArrowAltCircleLeft
               size={42}
               className={ClassNames([
-                "absolute text-blue-50 z-50 cursor-pointer skill-left-arrow transition-colors duration-300",
+                "absolute z-50 cursor-pointer skill-left-arrow transition-colors duration-300",
                 isDarkMode ? "text-blue-50" : "text-primary",
               ])}
               onClick={prev}
@@ -98,7 +98,7 @@ const SkillCarousel: React.FunctionComponent<Props> = ({
         <FaArrowAltCircleRight
           size={42}
           className={ClassNames([
-            "absolute z-50 text-blue-50 cursor-pointer skill-right-arrow transition-colors duration-300",
+            "absolute z-50 cursor-pointer skill-right-arrow transition-colors duration-300",
             isDarkMode ? "text-blue-50" : "text-primary",
           ])}
           onClick={next}

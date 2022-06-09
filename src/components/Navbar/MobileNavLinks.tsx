@@ -21,7 +21,7 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
 }) => (
   <ul
     className={classNames([
-      "MobileNavLinks flex flex-col justify-center items-center z-50",
+      "MobileNavLinks flex flex-col justify-center items-center z-50 transition-colors duration-300",
       isOpen ? "visible" : "hidden",
       isDarkMode ? "bg-blue-50" : "bg-primary",
     ])}
@@ -37,7 +37,7 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
       >
         <p
           className={classNames([
-            "text-center text-xl font-bold w-full hover:text-gray-600",
+            "text-center text-xl font-bold w-full hover:text-gray-600 transition-colors duration-300",
             isDarkMode ? "text-primary" : "text-blue-50",
           ])}
         >

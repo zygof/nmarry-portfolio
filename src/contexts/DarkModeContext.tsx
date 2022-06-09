@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
 interface Props {
-  children: React.FunctionComponent;
+  children: React.ReactNode;
 }
 
 interface DarkModeContextInterface {
