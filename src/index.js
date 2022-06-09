@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from "react-ga";
+
 import { RouteProvider, DarkModeProvider } from "./contexts";
 
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 import "./assets/main.css";
+
+ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
 
 ReactDOM.render(
   <React.StrictMode>

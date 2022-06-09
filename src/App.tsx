@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import ReactPageScroller from "react-page-scroller";
 import classNames from "classnames";
 import AOS from "aos";
+import ReactGA from "react-ga";
 
 import { RouteContext, DarkModeContext } from "./contexts";
 
@@ -34,6 +35,7 @@ const App = () => {
   const darkModeContext = useContext(DarkModeContext);
 
   useEffect(() => {
+    ReactGA.pageview("initRoute");
     AOS.init({
       once: true,
     });

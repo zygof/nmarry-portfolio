@@ -1,6 +1,8 @@
 import React, { createContext, useState } from "react";
+import ReactGA from "react-ga";
 
 import { RouteModel, RouteContextInterface } from "../interfaces";
+import useAnalyticsEventTracker from "../useAnalyticsEventTracker";
 
 import { Route } from "../data";
 
@@ -25,23 +27,30 @@ const RouteProvider: React.FunctionComponent<Props> = ({ children }) => {
   const [nextRoute, setNextRoute] = useState<RouteModel | null>(
     routes.length > 2 ? routes[1] : null
   );
-
+  const gaEventTracker = useAnalyticsEventTracker("Route management");
   const handleRoutes = (items: Array<RouteModel>) => setRoutes(items);
   const handleRoute = (id: number) => {
-    routes.map((item, index) => {
+    routes.map((item: RouteModel, index: number) => {
       if (item.id === id) {
         setPrevRoute(index === 0 ? null : routes[index - 1]);
         setCurrentRoute(item);
         setNextRoute(index === routes.length - 1 ? null : routes[index + 1]);
+        ReactGA.pageview(item.route);
       }
       return item;
     });
   };
   const goToPrevRoute = () => {
-    if (prevRoute) handleRoute(prevRoute.id);
+    if (prevRoute) {
+      handleRoute(prevRoute.id);
+      gaEventTracker(`goToPrev : ${prevRoute.route}`);
+    }
   };
   const goToNextRoute = () => {
-    if (nextRoute) handleRoute(nextRoute.id);
+    if (nextRoute) {
+      handleRoute(nextRoute.id);
+      gaEventTracker(`goToNext : ${nextRoute.route}`);
+    }
   };
 
   return (
