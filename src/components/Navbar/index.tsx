@@ -8,7 +8,11 @@ import MobileNavLinks from "./MobileNavLinks";
 import NavLinks from "./NavLinks";
 import MenuToggle from "./MenuToggle";
 
-const Navbar: React.FunctionComponent = () => {
+interface Props {
+  cv?: string;
+}
+
+const Navbar: React.FunctionComponent<Props> = ({ cv }) => {
   const routeContext = useContext(RouteContext);
   const darkModeContext = useContext(DarkModeContext);
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -43,6 +47,7 @@ const Navbar: React.FunctionComponent = () => {
           isDarkMode={darkModeContext?.darkMode}
           handleDarkMode={darkModeContext?.toggleDarkMode}
           routeContext={routeContext}
+          cv={cv}
         />
       ) : (
         <NavLinks

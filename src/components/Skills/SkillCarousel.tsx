@@ -4,9 +4,15 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 interface Props {
   children: Array<React.ReactNode>;
+  show: number;
+  isDarkMode?: boolean;
 }
 
-const Carousel: React.FunctionComponent<Props> = ({ children }) => {
+const SkillCarousel: React.FunctionComponent<Props> = ({
+  children,
+  show,
+  isDarkMode,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(children.length);
 
@@ -17,7 +23,7 @@ const Carousel: React.FunctionComponent<Props> = ({ children }) => {
   }, [children]);
 
   const next = () => {
-    if (currentIndex < length - 1) {
+    if (currentIndex < length - show) {
       setCurrentIndex((prevState) => prevState + 1);
     }
   };
@@ -55,8 +61,8 @@ const Carousel: React.FunctionComponent<Props> = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex">
+    <div className="flex flex-row skills">
+      <div className="flex w-screen">
         <div
           className="carousel-content-wrapper"
           onTouchStart={handleTouchStart}
@@ -64,36 +70,42 @@ const Carousel: React.FunctionComponent<Props> = ({ children }) => {
             handleTouchMove(event)
           }
         >
+          {currentIndex > 0 && (
+            <FaArrowAltCircleLeft
+              size={42}
+              className={ClassNames([
+                "absolute text-blue-50 z-50 cursor-pointer skill-left-arrow transition-colors duration-300",
+                isDarkMode ? "text-blue-50" : "text-primary",
+              ])}
+              onClick={prev}
+            />
+          )}
+
           <div
             className="carousel-content"
             style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
+              transform: `translateX(-${
+                currentIndex * (100 / show + show * 40)
+              }%)`,
+              width: `calc(100% / ${show})`,
             }}
           >
             {children}
           </div>
         </div>
       </div>
-      <div className="arrow-container flex flex-row justify-center space-x-20 py-5">
-        <FaArrowAltCircleLeft
-          size={42}
-          className={ClassNames([
-            "project-left-arrow",
-            currentIndex > 0 ? "" : "invisible",
-          ])}
-          onClick={prev}
-        />
+      {currentIndex < length - show && (
         <FaArrowAltCircleRight
           size={42}
           className={ClassNames([
-            "project-right-arrow",
-            currentIndex < length - 1 ? "" : "invisible",
+            "absolute z-50 text-blue-50 cursor-pointer skill-right-arrow transition-colors duration-300",
+            isDarkMode ? "text-blue-50" : "text-primary",
           ])}
           onClick={next}
         />
-      </div>
+      )}
     </div>
   );
 };
 
-export default Carousel;
+export default SkillCarousel;

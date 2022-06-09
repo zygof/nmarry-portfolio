@@ -9,6 +9,7 @@ interface Props {
   isOpen: boolean;
   isDarkMode?: boolean;
   handleDarkMode?: () => void;
+  cv?: string;
 }
 
 const MobileNavLinks: React.FunctionComponent<Props> = ({
@@ -16,10 +17,11 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
   isOpen,
   isDarkMode,
   handleDarkMode,
+  cv,
 }) => (
   <ul
     className={classNames([
-      "MobileNavLinks flex flex-col items-center ml-auto z-50 rounded-b-xl",
+      "MobileNavLinks flex flex-col justify-center items-center z-50",
       isOpen ? "visible" : "hidden",
       isDarkMode ? "bg-blue-50" : "bg-primary",
     ])}
@@ -49,6 +51,19 @@ const MobileNavLinks: React.FunctionComponent<Props> = ({
     >
       <TogglerDarkMode isDarkMode={isDarkMode} />
     </li>
+    {cv && (
+      <li className="w-full flex justify-center">
+        <a
+          href={cv}
+          download
+          className={classNames([
+            "rounded shadow-xl cursor-pointer text-center text-xl font-bold py-2 px-4 bg-primary text-blue-50",
+          ])}
+        >
+          Télécharger mon CV
+        </a>
+      </li>
+    )}
   </ul>
 );
 

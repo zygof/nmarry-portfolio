@@ -38,21 +38,10 @@
   flex-grow: 1;
 }
 
-.project-slide {
-  opacity: 0;
-  transition-duration: 1s ease;
-}
-
-.project-slide.active {
-  opacity: 1;
-  transition-duration: 1s;
-  transform: scale(1.08);
-}
-
-.project-slide.disabled {
-  visibility: hidden;
-  width: 0px;
-  height: 0px;
+@media only screen and (max-width: 640px) {
+  .projects .carousel-content > * {
+    width: 100%;
+  }
 }
 
 .project-type {

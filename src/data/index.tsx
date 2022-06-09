@@ -2,7 +2,35 @@ import React from "react";
 import classNames from "classnames";
 import { ReactSVG } from "react-svg";
 import { IconBaseProps } from "react-icons";
-import { FaGithub, FaLinkedin, FaRegEnvelope, FaCode } from "react-icons/fa";
+import {
+  FaRegEnvelope,
+  FaUserAlt,
+  FaUserFriends,
+  FaUserTie,
+} from "react-icons/fa";
+import {
+  SiLinkedin,
+  SiCplusplus,
+  SiAngular,
+  SiJava,
+  SiPhp,
+  SiNodedotjs,
+  SiTsnode,
+  SiTypescript,
+  SiKotlin,
+  SiSpringboot,
+  SiFirebase,
+  SiMongodb,
+  SiMicrosoftsqlserver,
+  SiMysql,
+  SiCsharp,
+  SiNextdotjs,
+  SiReact,
+  SiGithub,
+} from "react-icons/si";
+import { IconBrandReactNative } from "@tabler/icons";
+import { RiInputMethodLine } from "react-icons/ri";
+import { GiCardJoker } from "react-icons/gi";
 
 import {
   DataModel,
@@ -25,6 +53,8 @@ const data: DataModel = {
   firstName: "Nicolas",
   lastName: "MARRY",
   title: "Développeur full-stack / Mobile",
+  profile: "/profile.png",
+  cv: "/CV-Nicolas MARRY.pdf",
   personalDescription: [
     {
       description: "Passionné de sport",
@@ -49,13 +79,13 @@ const data: DataModel = {
     {
       social: "GitHub",
       link: "https://github.com/zygof",
-      icon: <FaGithub size={32} />,
+      icon: <SiGithub size={32} />,
     },
 
     {
       social: "LinkedIn",
       link: "https://www.linkedin.com/in/nmarry",
-      icon: <FaLinkedin size={32} />,
+      icon: <SiLinkedin size={32} />,
     },
     {
       social: "Email",
@@ -120,15 +150,35 @@ const data: DataModel = {
       elements: [
         {
           name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          icon: (props?: IconBaseProps) => <SiReact {...props} />,
         },
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "Typescript",
+          icon: (props?: IconBaseProps) => <SiTypescript {...props} />,
         },
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "React Native",
+          icon: (props?: IconBaseProps) => <IconBrandReactNative {...props} />,
+        },
+        {
+          name: "Kotlin",
+          icon: (props?: IconBaseProps) => <SiKotlin {...props} />,
+        },
+        {
+          name: "JAVA EE",
+          icon: (props?: IconBaseProps) => <SiJava {...props} />,
+        },
+        {
+          name: "JAVA FX",
+          icon: (props?: IconBaseProps) => <SiJava {...props} />,
+        },
+        {
+          name: "C++",
+          icon: (props?: IconBaseProps) => <SiCplusplus {...props} />,
+        },
+        {
+          name: "Angular",
+          icon: (props?: IconBaseProps) => <SiAngular {...props} />,
         },
       ],
     },
@@ -136,16 +186,44 @@ const data: DataModel = {
       type: "Backend",
       elements: [
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "Node JS",
+          icon: (props?: IconBaseProps) => <SiNodedotjs {...props} />,
         },
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "TS Node",
+          icon: (props?: IconBaseProps) => <SiTsnode {...props} />,
         },
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "Spring Boot",
+          icon: (props?: IconBaseProps) => <SiSpringboot {...props} />,
+        },
+        {
+          name: "Firebase",
+          icon: (props?: IconBaseProps) => <SiFirebase {...props} />,
+        },
+        {
+          name: "PHP",
+          icon: (props?: IconBaseProps) => <SiPhp {...props} />,
+        },
+        {
+          name: "MongoDB",
+          icon: (props?: IconBaseProps) => <SiMongodb {...props} />,
+        },
+        {
+          name: "SQL Server",
+          icon: (props?: IconBaseProps) => <SiMicrosoftsqlserver {...props} />,
+        },
+        {
+          name: "MySQL",
+          icon: (props?: IconBaseProps) => <SiMysql {...props} />,
+        },
+        {
+          name: "C#",
+          icon: (props?: IconBaseProps) => <SiCsharp {...props} />,
+        },
+        {
+          name: "Next JS",
+          icon: (props?: IconBaseProps) => <SiNextdotjs {...props} />,
         },
       ],
     },
@@ -153,21 +231,41 @@ const data: DataModel = {
       type: "Soft skill",
       elements: [
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "GitHub",
+          icon: (props?: IconBaseProps) => <SiGithub {...props} />,
         },
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "Méth. agile",
+          icon: (props?: IconBaseProps) => <RiInputMethodLine {...props} />,
         },
         {
-          name: "React",
-          icon: (props?: IconBaseProps) => <FaCode {...props} />,
+          name: "Team work",
+          icon: (props?: IconBaseProps) => <FaUserFriends {...props} />,
+        },
+        {
+          name: "Solo work",
+          icon: (props?: IconBaseProps) => <FaUserAlt {...props} />,
+        },
+        {
+          name: "Blague nul",
+          icon: (props?: IconBaseProps) => <GiCardJoker {...props} />,
+        },
+        {
+          name: "Aisance rel.",
+          icon: (props?: IconBaseProps) => <FaUserTie {...props} />,
         },
       ],
     },
   ],
   projects: [
+    {
+      name: "NMARRY Portfolio",
+      statut: Statut.DEPLOYED,
+      type: ProjectType.PERSONAL,
+      platforms: [Platform.WEB],
+      description: "Mon portfolio en ligne.",
+      technologies: ["React", "Typescript"],
+    },
     {
       name: "ISIS Diabète",
       statut: Statut.IN_PROGRESS,
@@ -293,8 +391,6 @@ const data: DataModel = {
       technologies: ["Arduino", "C#"],
     },
   ],
-  profile: "/profile.png",
-  cv: "/CV-Nicolas MARRY.pdf",
 };
 
 export const Logo: React.FunctionComponent<LogoProps> = ({

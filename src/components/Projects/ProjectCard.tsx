@@ -38,9 +38,11 @@ const ProjectCard: React.FunctionComponent<ProjectCardProps> = ({
     </p>
     <div className="flex flex-row">
       {project.technologies.map((technologie: string, index: number) => (
-        <span className="flex flex-col justify-center items-center w-full h-12">
+        <span
+          key={index}
+          className="flex flex-col justify-center items-center w-full h-12"
+        >
           <FaCog
-            key={index}
             size={20}
             className="text-gray-800 transition-colors duration-300"
           />

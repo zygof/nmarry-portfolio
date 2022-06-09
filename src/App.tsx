@@ -47,7 +47,7 @@ const App = () => {
           darkModeContext?.darkMode ? "bg-gray-900" : "bg-blue-50",
         ])}
       >
-        <Navbar />
+        <Navbar cv={data.cv} />
         <ReactPageScroller
           customPageNumber={routeContext?.currentRoute?.id || 0}
           onBeforePageScroll={routeContext?.handleRoute}

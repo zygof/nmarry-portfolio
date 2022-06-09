@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import classNames from "classnames";
+import { useMediaQuery } from "react-responsive";
 
 import { ProjectModel } from "../../interfaces";
 import { DarkModeContext } from "../../contexts";
-import Carousel from "./Carousel";
+import ProjectCarousel from "./ProjectCarousel";
 import ProjectCard from "./ProjectCard";
 
 interface Props {
@@ -12,6 +13,9 @@ interface Props {
 
 const Projects: React.FunctionComponent<Props> = ({ projects }) => {
   const darkModeContext = useContext(DarkModeContext);
+
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1024 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const sliceIntoChunks = (chunkSize: number) => {
     const splitedSlideData: Array<ProjectModel[]> = [];
@@ -23,7 +27,7 @@ const Projects: React.FunctionComponent<Props> = ({ projects }) => {
   };
 
   const slides = () => {
-    const slideData = sliceIntoChunks(6);
+    const slideData = sliceIntoChunks(isDesktopOrLaptop ? 6 : isMobile ? 2 : 4);
     return slideData.map((data, index) => (
       <div
         key={index}
@@ -41,7 +45,7 @@ const Projects: React.FunctionComponent<Props> = ({ projects }) => {
   };
 
   return (
-    <section className="component projects flex flex-col px-16 pt-24 items-center relative">
+    <section className="component projects flex flex-col px-16 pt-20 items-center relative">
       <h1
         className={classNames([
           "text-center text-2xl font-bold transition-colors duration-300 mb-3",
@@ -50,7 +54,7 @@ const Projects: React.FunctionComponent<Props> = ({ projects }) => {
       >
         Projets
       </h1>
-      <Carousel>{slides()}</Carousel>
+      <ProjectCarousel>{slides()}</ProjectCarousel>
     </section>
   );
 };
