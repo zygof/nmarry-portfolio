@@ -31,6 +31,7 @@ import {
 import { IconBrandReactNative } from "@tabler/icons";
 import { RiInputMethodLine } from "react-icons/ri";
 import { GiCardJoker } from "react-icons/gi";
+import { BsFillPhoneVibrateFill } from "react-icons/bs";
 
 import {
   DataModel,
@@ -52,6 +53,7 @@ export enum Route {
 const data: DataModel = {
   firstName: "Nicolas",
   lastName: "MARRY",
+  birthDate: new Date(1997, 7, 31),
   title: "Développeur full-stack / Mobile",
   profile: "/profile.png",
   cv: "/CV-Nicolas MARRY.pdf",
@@ -70,9 +72,9 @@ const data: DataModel = {
       icon: () => "🖥️",
     },
     {
-      description: "me@nmarry.fr",
+      description: "n.marry@outlook.fr",
       icon: () => "📧",
-      hasLink: "mailto:me@nmarry.fr",
+      hasLink: "mailto:n.marry@outlook.fr",
     },
   ],
   socials: [
@@ -88,8 +90,13 @@ const data: DataModel = {
       icon: <SiLinkedin size={32} />,
     },
     {
+      social: "Téléphone",
+      link: "tel:0692400066",
+      icon: <BsFillPhoneVibrateFill size={32} />,
+    },
+    {
       social: "Email",
-      link: "https://mail.google.com/mail/?view=cm&fs=1&to=me@nmarry.fr",
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=n.marry@outlook.fr",
       icon: <FaRegEnvelope size={32} />,
     },
   ],

@@ -16,7 +16,7 @@ const Intro: React.FunctionComponent<Props> = ({ data }) => {
       data-aos-delay="400"
       className="component section-intro"
     >
-      <div className="avatar shadow-2xl">
+      <div className="avatar shadow-2xl relative">
         <img
           src={data.profile}
           alt="self"
@@ -30,7 +30,18 @@ const Intro: React.FunctionComponent<Props> = ({ data }) => {
             darkModeContext?.darkMode ? "text-blue-50" : "text-black",
           ])}
         >
-          Hi, I'm {data.firstName} 👋🏽
+          Hi, I'm {data.firstName} (
+          {Math.abs(
+            new Date(
+              Date.now() -
+                new Date(
+                  data.birthDate.getFullYear(),
+                  data.birthDate.getMonth(),
+                  data.birthDate.getDay()
+                ).getTime()
+            ).getUTCFullYear() - 1970
+          )}{" "}
+          ans) 👋🏽
         </p>
         <p className="text-3xl font-semibold my-1 text-primary">{data.title}</p>
         <ul>

@@ -74,6 +74,7 @@ export interface CareerModel {
 export interface DataModel {
   firstName: string;
   lastName: string;
+  birthDate: Date;
   title: string;
   profile: string;
   cv?: string;
