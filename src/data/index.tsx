@@ -27,6 +27,7 @@ import {
   SiNextdotjs,
   SiReact,
   SiGithub,
+  SiTailwindcss,
 } from "react-icons/si";
 import { IconBrandReactNative } from "@tabler/icons";
 import { RiInputMethodLine } from "react-icons/ri";
@@ -186,6 +187,10 @@ const data: DataModel = {
         {
           name: "Angular",
           icon: (props?: IconBaseProps) => <SiAngular {...props} />,
+        },
+        {
+          name: "Tailwind",
+          icon: (props?: IconBaseProps) => <SiTailwindcss {...props} />,
         },
       ],
     },
